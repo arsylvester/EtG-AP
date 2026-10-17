@@ -8,12 +8,12 @@ from rule_builder.rules import Has, HasAll, Rule
 from .options import HardMode
 
 if TYPE_CHECKING:
-    from .world import APQuestWorld
+    from .world import EnterTheGungeonWorld
 
 HAS_KEY = Has("Key")  # Hmm, what could this be? A little foreshadowing perhaps? :) You'll find out if you keep reading!
 
 
-def set_all_rules(world: APQuestWorld) -> None:
+def set_all_rules(world: EnterTheGungeonWorld) -> None:
     # In order for AP to generate an item layout that is actually possible for the player to complete,
     # we need to define rules for our Entrances and Locations.
     # Note: Regions do not have rules, the Entrances connecting them do!
@@ -24,7 +24,7 @@ def set_all_rules(world: APQuestWorld) -> None:
     set_completion_condition(world)
 
 
-def set_all_entrance_rules(world: APQuestWorld) -> None:
+def set_all_entrance_rules(world: EnterTheGungeonWorld) -> None:
     # First, we need to actually grab our entrances. Luckily, there is a helper method for this.
     overworld_to_bottom_right_room = world.get_entrance("Overworld to Bottom Right Room")
     overworld_to_top_left_room = world.get_entrance("Overworld to Top Left Room")
@@ -72,7 +72,7 @@ def set_all_entrance_rules(world: APQuestWorld) -> None:
     # you can make custom rules by subclassing CustomRule.
 
 
-def set_all_location_rules(world: APQuestWorld) -> None:
+def set_all_location_rules(world: EnterTheGungeonWorld) -> None:
     # Location rules work no differently from Entrance rules.
     # Most of our locations are chests that can simply be opened by walking up to them.
     # Thus, their logical requirements are covered by the Entrance rules of the Entrances that were required to
@@ -131,7 +131,7 @@ def set_all_location_rules(world: APQuestWorld) -> None:
     world.set_rule(final_boss, can_defeat_final_boss)
 
 
-def set_completion_condition(world: APQuestWorld) -> None:
+def set_completion_condition(world: EnterTheGungeonWorld) -> None:
     # Finally, we need to set a completion condition for our world, defining what the player needs to win the game.
     # For this, we can use world.set_completion_rule.
     # You can just set a completion condition directly like any other condition, referencing items the player receives:

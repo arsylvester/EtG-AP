@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 from BaseClasses import Entrance, Region
 
 if TYPE_CHECKING:
-    from .world import APQuestWorld
+    from .world import EnterTheGungeonWorld
 
 # A region is a container for locations ("checks"), which connects to other regions via "Entrance" objects.
 # Many games will model their Regions after physical in-game places, but you can also have more abstract regions.
@@ -17,12 +17,12 @@ if TYPE_CHECKING:
 # This is why we create regions first, and then later we create the locations (in locations.py).
 
 
-def create_and_connect_regions(world: APQuestWorld) -> None:
+def create_and_connect_regions(world: EnterTheGungeonWorld) -> None:
     create_all_regions(world)
     connect_regions(world)
 
 
-def create_all_regions(world: APQuestWorld) -> None:
+def create_all_regions(world: EnterTheGungeonWorld) -> None:
     # Creating a region is as simple as calling the constructor of the Region class.
     overworld = Region("Overworld", world.player, world.multiworld)
     top_left_room = Region("Top Left Room", world.player, world.multiworld)
@@ -43,7 +43,7 @@ def create_all_regions(world: APQuestWorld) -> None:
     world.multiworld.regions += regions
 
 
-def connect_regions(world: APQuestWorld) -> None:
+def connect_regions(world: EnterTheGungeonWorld) -> None:
     # We have regions now, but still need to connect them to each other.
     # But wait, we no longer have access to the region variables we created in create_all_regions()!
     # Luckily, once you've submitted your regions to multiworld.regions,

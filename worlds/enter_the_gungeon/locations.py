@@ -7,7 +7,7 @@ from BaseClasses import ItemClassification, Location
 from . import items
 
 if TYPE_CHECKING:
-    from .world import APQuestWorld
+    from .world import EnterTheGungeonWorld
 
 # Every location must have a unique integer ID associated with it.
 # We will have a lookup from location name to ID here that, in world.py, we will import and bind to the world class.
@@ -26,7 +26,7 @@ LOCATION_NAME_TO_ID = {
 
 # Each Location instance must correctly report the "game" it belongs to.
 # To make this simple, it is common practice to subclass the basic Location class and override the "game" field.
-class APQuestLocation(Location):
+class GungeonLocation(Location):
     game = "APQuest"
 
 
@@ -40,12 +40,12 @@ def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | No
     return {location_name: LOCATION_NAME_TO_ID[location_name] for location_name in location_names}
 
 
-def create_all_locations(world: APQuestWorld) -> None:
+def create_all_locations(world: EnterTheGungeonWorld) -> None:
     create_regular_locations(world)
     create_events(world)
 
 
-def create_regular_locations(world: APQuestWorld) -> None:
+def create_regular_locations(world: EnterTheGungeonWorld) -> None:
     # Finally, we need to put the Locations ("checks") into their regions.
     # Once again, before we do anything, we can grab our regions we created by using world.get_region()
     overworld = world.get_region("Overworld")
@@ -54,7 +54,7 @@ def create_regular_locations(world: APQuestWorld) -> None:
     right_room = world.get_region("Right Room")
 
     # One way to create locations is by just creating them directly via their constructor.
-    bottom_left_chest = APQuestLocation(
+    bottom_left_chest = GungeonLocation(
         world.player, "Bottom Left Chest", world.location_name_to_id["Bottom Left Chest"], overworld
     )
 
@@ -68,22 +68,22 @@ def create_regular_locations(world: APQuestWorld) -> None:
     bottom_right_room_locations = get_location_names_with_ids(
         ["Bottom Right Room Left Chest", "Bottom Right Room Right Chest"]
     )
-    bottom_right_room.add_locations(bottom_right_room_locations, APQuestLocation)
+    bottom_right_room.add_locations(bottom_right_room_locations, GungeonLocation)
 
     top_left_room_locations = get_location_names_with_ids(["Top Left Room Chest"])
-    top_left_room.add_locations(top_left_room_locations, APQuestLocation)
+    top_left_room.add_locations(top_left_room_locations, GungeonLocation)
 
     right_room_locations = get_location_names_with_ids(["Right Room Enemy Drop"])
-    right_room.add_locations(right_room_locations, APQuestLocation)
+    right_room.add_locations(right_room_locations, GungeonLocation)
 
     # Locations may be in different regions depending on the player's options.
     # In our case, the hammer option puts the Top Middle Chest into its own room called Top Middle Room.
     top_middle_room_locations = get_location_names_with_ids(["Top Middle Chest"])
     if world.options.hammer:
         top_middle_room = world.get_region("Top Middle Room")
-        top_middle_room.add_locations(top_middle_room_locations, APQuestLocation)
+        top_middle_room.add_locations(top_middle_room_locations, GungeonLocation)
     else:
-        overworld.add_locations(top_middle_room_locations, APQuestLocation)
+        overworld.add_locations(top_middle_room_locations, GungeonLocation)
 
     # Locations may exist only if the player enables certain options.
     # In our case, the extra_starting_chest option adds the Bottom Left Extra Chest location.
@@ -92,10 +92,10 @@ def create_regular_locations(world: APQuestWorld) -> None:
         # exist, it must still always be present in the world's location_name_to_id.
         # Whether the location actually exists in the seed is purely determined by whether we create and add it here.
         bottom_left_extra_chest = get_location_names_with_ids(["Bottom Left Extra Chest"])
-        overworld.add_locations(bottom_left_extra_chest, APQuestLocation)
+        overworld.add_locations(bottom_left_extra_chest, GungeonLocation)
 
 
-def create_events(world: APQuestWorld) -> None:
+def create_events(world: EnterTheGungeonWorld) -> None:
     # Sometimes, the player may perform in-game actions that allow them to progress which are not related to Items.
     # In our case, the player must press a button in the top left room to open the final boss door.
     # AP has something for this purpose: "Event locations" and "Event items".
@@ -107,7 +107,7 @@ def create_events(world: APQuestWorld) -> None:
     final_boss_room = world.get_region("Final Boss Room")
 
     # One way to create an event is simply to use one of the normal methods of creating a location.
-    button_in_top_left_room = APQuestLocation(world.player, "Top Left Room Button", None, top_left_room)
+    button_in_top_left_room = GungeonLocation(world.player, "Top Left Room Button", None, top_left_room)
     top_left_room.locations.append(button_in_top_left_room)
 
     # We then need to put an event item onto the location.
@@ -118,7 +118,7 @@ def create_events(world: APQuestWorld) -> None:
     # it is common practice to create the item when creating the location.
     # Since locations also have to be finalized after world.create_regions(), which runs before world.create_items(),
     # we'll create both the event location and the event item in our locations.py code.
-    button_item = items.APQuestItem("Top Left Room Button Pressed", ItemClassification.progression, None, world.player)
+    button_item = items.GungeonItem("Top Left Room Button Pressed", ItemClassification.progression, None, world.player)
     button_in_top_left_room.place_locked_item(button_item)
 
     # A way simpler way to do create an event location/item pair is by using the region.create_event helper.
@@ -126,7 +126,7 @@ def create_events(world: APQuestWorld) -> None:
     # We will use this event to track whether the player can win the game.
     # The Victory event is a completely optional abstraction - This will be discussed more in set_rules().
     final_boss_room.add_event(
-        "Final Boss Defeated", "Victory", location_type=APQuestLocation, item_type=items.APQuestItem
+        "Final Boss Defeated", "Victory", location_type=GungeonLocation, item_type=items.GungeonItem
     )
 
     # If you create all your regions and locations line-by-line like this,
