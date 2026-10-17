@@ -67,10 +67,10 @@ def connect_regions(world: EnterTheGungeonWorld) -> None:
     #final_boss_room = world.get_region("Final Boss Room")
 
     EtGRegionConnections: typing.Dict[str, typing.Tuple[str]] = {
-        RegionName.Breach: (RegionName.OxAndCadence,
-                            RegionName.Doug,
-                            RegionName.Goopton,
-                            RegionName.Trorc,
+        RegionName.Breach: (RegionName.OxAndCadence1,
+                            RegionName.Doug1,
+                            RegionName.Goopton1,
+                            RegionName.Trorc1,
                             RegionName.Tinker,
                             RegionName.Payday,
                             RegionName.PastKillable,
@@ -78,15 +78,31 @@ def connect_regions(world: EnterTheGungeonWorld) -> None:
                             RegionName.Abbey,
                             RegionName.RatLair,
                             RegionName.RngDepartment),
-        RegionName.RatLair: (RegionName.RatMaze)
+        RegionName.OxAndCadence1: (RegionName.OxAndCadence2),
+        RegionName.OxAndCadence2: (RegionName.OxAndCadence3),
+        RegionName.OxAndCadence3: (RegionName.OxAndCadence4),
+        RegionName.OxAndCadence4: (RegionName.OxAndCadence5),
+        RegionName.OxAndCadence5: (RegionName.OxAndCadence6),
+        RegionName.OxAndCadence6: (RegionName.OxAndCadence7),
+        RegionName.Doug1: (RegionName.Doug2),
+        RegionName.Doug2: (RegionName.Doug3),
+        RegionName.Doug3: (RegionName.Doug4),
+        RegionName.Doug4: (RegionName.Doug5),
+        RegionName.Doug5: (RegionName.Doug6),
+        RegionName.Goopton1: (RegionName.Goopton2),
+        RegionName.Trorc1: (RegionName.Trorc2),
+        RegionName.RatLair: (RegionName.RatFight)
     }
 
     for source, targets in EtGRegionConnections.items():
         source_region = world.get_region(source)
         for target in targets:
             target_region = world.get_region(target)
-            connectionName = source + "To" + target
+            connectionName = get_connection_name(source, target)
             source_region.connect(target_region, connectionName)
+
+def get_connection_name (source:str, target:str) -> str:
+    return source + " to " + target
 
     # Okay, now we can get connecting. For this, we need to create Entrances.
     # Entrances are inherently one-way, but crucially, AP assumes you can always return to the origin region.
