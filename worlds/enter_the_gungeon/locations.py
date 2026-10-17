@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from BaseClasses import ItemClassification, Location
+from .Names import LocationName
 
 from . import items
 
@@ -23,11 +24,134 @@ LOCATION_NAME_TO_ID = {
     "Right Room Enemy Drop": 10,
 }
 
+OxAndCadenceLocations = {
+    LocationName.BLUEPRINTMETA_THOMPSON: 200001,
+	LocationName.BLUEPRINTMETA_HEARTBOTTLE: 200002,
+	LocationName.BLUEPRINTMETA_GAMMARAY: 200003,
+	LocationName.BLUEPRINTMETA_RPG: 200004,
+	LocationName.BLUEPRINTMETA_ROCKETBULLETS: 200005,
+	LocationName.BLUEPRINTMETA_HEGEMONYRIFLE: 200006,
+	LocationName.BLUEPRINTMETA_HEARTLOCKET: 200007,
+	LocationName.BLUEPRINTMETA_FIREBULLETS: 200008,
+	LocationName.BLUEPRINTMETA_FREEZERAY: 200009,
+	LocationName.BLUEPRINTMETA_HEARTLUNCHBOX: 200010,
+	LocationName.BLUEPRINTMETA_BOX: 200011,
+	LocationName.BLUEPRINTMETA_MAILBOX: 200012,
+	LocationName.BLUEPRINTMETA_FATBULLETS: 200013,
+	LocationName.BLUEPRINTMETA_BETTERBULLETS: 200014,
+	LocationName.BLUEPRINTMETA_ANGRYBULLETS: 200015,
+	LocationName.BLUEPRINTMETA_SIREN: 200016,
+	LocationName.BLUEPRINTMETA_HEARTPURSE: 200017,
+	LocationName.BLUEPRINTMETA_ORIGUNI: 200018,
+	LocationName.BLUEPRINTMETA_EYEPATCH: 200019,
+	LocationName.BLUEPRINTMETA_BLOODYEYE: 200020,
+	LocationName.BLUEPRINTMETA_SPICE: 200021,
+	LocationName.BLUEPRINTMETA_GRASSCHOPPER: 200022,
+	LocationName.BLUEPRINTMETA_SUNGLASSES: 200023,
+	LocationName.BLUEPRINTMETA_FLASHRAYGUN: 200024,
+	LocationName.BLUEPRINTMETA_SINGULARITY: 200025,
+	LocationName.BLUEPRINTMETA_SCIENCECANNON: 200026,
+	LocationName.BLUEPRINTMETA_NANOMACHINES: 200027,
+	LocationName.BLUEPRINTMETA_ICEBREAKER: 200028,
+	LocationName.BLUEPRINTMETA_PORTABLETURRET: 200029,
+	LocationName.BLUEPRINTMETA_DUCTTAPE: 200030,
+	LocationName.BLUEPRINTMETA_TANGLER: 200031,
+	LocationName.BLUEPRINTMETA_LAMP: 200032,
+	LocationName.BLUEPRINTMETA_FACEMELTER: 200033,
+	LocationName.BLUEPRINTMETA_HEROINE: 200034,
+	LocationName.BLUEPRINTMETA_MASSSHOTGUN: 200035,
+	LocationName.BLUEPRINTMETA_CEREBRALBORE: 200036,
+	LocationName.BLUEPRINTMETA_RAIDENCOIL: 200037,
+	LocationName.BLUEPRINTMETA_BLACKHOLEGUN: 200038,
+	LocationName.BLUEPRINTMETA_SPACEFRIEND: 200039,
+	LocationName.BLUEPRINTMETA_YARI: 200040,
+	LocationName.BLUEPRINTMETA_RAILGUN: 200041,
+	LocationName.BLUEPRINTMETA_BROCCOLI: 200042,
+	#LocationName.BLUEPRINTMETA_MTXGUN: 200043,
+	LocationName.BLUEPRINTMETA_PLATINUMBULLETS: 200100,
+}
+
+GooptonLocations = {
+    LocationName.BLUEPRINTGOOP_BUGBOOTS: 220001,
+	LocationName.BLUEPRINTGOOP_FOSSILIZEDGUN: 220002,
+	LocationName.BLUEPRINTGOOP_MONSTERBLOOD: 220003,
+	LocationName.BLUEPRINTGOOP_PLAGUEPISTOL: 220004,
+	LocationName.BLUEPRINTGOOP_MEMBRANE: 220005,
+	LocationName.BLUEPRINTGOOP_PLUNGER: 220006,
+	LocationName.BLUEPRINTGOOP_SPONGE: 220007,
+	LocationName.BLUEPRINTGOOP_TENTACLEARM: 220008,
+	LocationName.BLUEPRINTGOOP_NAPALMSTRIKE: 220009,
+	LocationName.BLUEPRINTGOOP_GUNDROMEDASTRAIN: 220010,
+	LocationName.BLUEPRINTGOOP_EVOLVER: 220011,
+}
+
+TrorcLocations = {
+    LocationName.BLUEPRINTTRUCK_CLUSTERMINE: 230001,
+	LocationName.BLUEPRINTTRUCK_MSIXTEEN: 230002,
+	LocationName.BLUEPRINTTRUCK_RATION: 230003,
+	LocationName.BLUEPRINTTRUCK_AIRSTRIKE: 230004,
+	LocationName.BLUEPRINTTRUCK_COMMANDO: 230005,
+	LocationName.BLUEPRINTTRUCK_AWP: 230006,
+	LocationName.BLUEPRINTTRUCK_NIKITA: 230007,
+	LocationName.BLUEPRINTTRUCK_BIGBOY: 230008,
+	LocationName.BLUEPRINTTRUCK_CHAFFGRENADE: 230009,
+	LocationName.BLUEPRINTTRUCK_PATRIOT: 230010,
+	LocationName.BLUEPRINTTRUCK_MAGAZINERACK: 230011,
+}
+
+DougLocations = {
+    LocationName.BLUEPRINTBEETLE_DEVOLVER: 240001,
+	LocationName.BLUEPRINTBEETLE_BASEBALLBAT: 240002,
+	LocationName.BLUEPRINTBEETLE_DAWNHAMMER: 240003,
+	LocationName.BLUEPRINTBEETLE_STRAFEGUN: 240004,
+	LocationName.BLUEPRINTBEETLE_HYPERLIGHT: 240005,
+	LocationName.BLUEPRINTBEETLE_STARPEW: 240006,
+	LocationName.BLUEPRINTBEETLE_DUELINGLASER: 240007,
+	LocationName.BLUEPRINTBEETLE_TELEPORTERPROTOTYPE: 240008,
+	LocationName.BLUEPRINTBEETLE_VORPALGUN: 240009,
+	LocationName.BLUEPRINTBEETLE_STOUTIES: 240010,
+	LocationName.BLUEPRINTBEETLE_CHARMERS: 240011,
+	LocationName.BLUEPRINTBEETLE_FLAKTUALLY: 240012,
+	LocationName.BLUEPRINTBEETLE_MAGICITES: 240013,
+	LocationName.BLUEPRINTBEETLE_METROIDBOMBS: 240014,
+	LocationName.BLUEPRINTBEETLE_SILVALLIES: 240015,
+	LocationName.BLUEPRINTBEETLE_HELIX: 240016,
+	LocationName.BLUEPRINTBEETLE_GOLDIES: 240017,
+	LocationName.BLUEPRINTBEETLE_BEEBULLETS: 240101,
+	LocationName.BLUEPRINTBEETLE_DEVOLVERBULLETS: 240102,
+	LocationName.BLUEPRINTBEETLE_CRITICALBULLETS: 240103,
+	LocationName.BLUEPRINTBEETLE_SNOWBALLETS: 240104,
+	LocationName.BLUEPRINTBEETLE_BIGGIANTHEAD: 240105,
+	LocationName.BLUEPRINTBEETLE_COMBINERIFLE: 240106,
+	LocationName.BLUEPRINTBEETLE_EXOTICGUN: 240107,
+	LocationName.BLUEPRINTBEETLE_BIGSHOTGUN: 240108,
+	LocationName.BLUEPRINTBEETLE_GUNDERFURY: 240201,
+	LocationName.BLUEPRINTBEETLE_GLAIVE: 240202,
+	LocationName.BLUEPRINTBEETLE_LUTE: 240203,
+	LocationName.BLUEPRINTBEETLE_TETRIS: 240204,
+	LocationName.BLUEPRINTBEETLE_TRIGUN: 240205,
+	LocationName.BLUEPRINTBEETLE_SHOVEL: 240206,
+	LocationName.BLUEPRINTBEETLE_PREDATOR: 240207,
+	LocationName.BLUEPRINTBEETLE_VOIDCORELAUNCHER: 240208,
+	LocationName.BLUEPRINTBEETLE_BLANKBULLETS: 240209,
+	LocationName.BLUEPRINTBEETLE_ORBITALBULLETS: 240210,
+	LocationName.BLUEPRINTBEETLE_SCOUTER: 240211,
+	LocationName.BLUEPRINTBEETLE_CONTROLLER: 240212,
+	LocationName.BLUEPRINTBEETLE_GUNNER: 240213,
+}
+
+AllLocationIds = {
+    **OxAndCadenceLocations,
+    **GooptonLocations,
+    **TrorcLocations,
+    **DougLocations
+}
+
 
 # Each Location instance must correctly report the "game" it belongs to.
 # To make this simple, it is common practice to subclass the basic Location class and override the "game" field.
 class GungeonLocation(Location):
-    game = "APQuest"
+    game = "EnterTheGungeon"
 
 
 # Let's make one more helper method before we begin actually creating locations.
@@ -103,12 +227,12 @@ def create_events(world: EnterTheGungeonWorld) -> None:
     # It is treated during generation like any other location, but then it is discarded.
     # This location cannot be "sent" and its item cannot be "received", but the item can be used in logic rules.
     # Since we are creating more locations and adding them to regions, we need to grab those regions again first.
-    top_left_room = world.get_region("Top Left Room")
-    final_boss_room = world.get_region("Final Boss Room")
+    #top_left_room = world.get_region("Top Left Room")
+    #final_boss_room = world.get_region("Final Boss Room")
 
     # One way to create an event is simply to use one of the normal methods of creating a location.
-    button_in_top_left_room = GungeonLocation(world.player, "Top Left Room Button", None, top_left_room)
-    top_left_room.locations.append(button_in_top_left_room)
+    #button_in_top_left_room = GungeonLocation(world.player, "Top Left Room Button", None, top_left_room)
+    #top_left_room.locations.append(button_in_top_left_room)
 
     # We then need to put an event item onto the location.
     # An event item is an item whose code is "None" (same as the event location's address),
@@ -118,16 +242,16 @@ def create_events(world: EnterTheGungeonWorld) -> None:
     # it is common practice to create the item when creating the location.
     # Since locations also have to be finalized after world.create_regions(), which runs before world.create_items(),
     # we'll create both the event location and the event item in our locations.py code.
-    button_item = items.GungeonItem("Top Left Room Button Pressed", ItemClassification.progression, None, world.player)
-    button_in_top_left_room.place_locked_item(button_item)
+    #button_item = items.GungeonItem("Top Left Room Button Pressed", ItemClassification.progression, None, world.player)
+    #button_in_top_left_room.place_locked_item(button_item)
 
     # A way simpler way to do create an event location/item pair is by using the region.create_event helper.
     # Luckily, we have another event we want to create: The Victory event.
     # We will use this event to track whether the player can win the game.
     # The Victory event is a completely optional abstraction - This will be discussed more in set_rules().
-    final_boss_room.add_event(
-        "Final Boss Defeated", "Victory", location_type=GungeonLocation, item_type=items.GungeonItem
-    )
+    #final_boss_room.add_event(
+    #    "Final Boss Defeated", "Victory", location_type=GungeonLocation, item_type=items.GungeonItem
+    #)
 
     # If you create all your regions and locations line-by-line like this,
     # the length of your create_regions might get out of hand.

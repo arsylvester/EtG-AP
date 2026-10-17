@@ -66,6 +66,7 @@ def connect_regions(world: EnterTheGungeonWorld) -> None:
     #right_room = world.get_region("Right Room")
     #final_boss_room = world.get_region("Final Boss Room")
 
+    # noinspection bad-assignment
     EtGRegionConnections: typing.Dict[str, typing.Tuple[str]] = {
         RegionName.Breach: (RegionName.OxAndCadence1,
                             RegionName.Doug1,
@@ -78,20 +79,20 @@ def connect_regions(world: EnterTheGungeonWorld) -> None:
                             RegionName.Abbey,
                             RegionName.RatLair,
                             RegionName.RngDepartment),
-        RegionName.OxAndCadence1: (RegionName.OxAndCadence2),
-        RegionName.OxAndCadence2: (RegionName.OxAndCadence3),
-        RegionName.OxAndCadence3: (RegionName.OxAndCadence4),
-        RegionName.OxAndCadence4: (RegionName.OxAndCadence5),
-        RegionName.OxAndCadence5: (RegionName.OxAndCadence6),
-        RegionName.OxAndCadence6: (RegionName.OxAndCadence7),
-        RegionName.Doug1: (RegionName.Doug2),
-        RegionName.Doug2: (RegionName.Doug3),
-        RegionName.Doug3: (RegionName.Doug4),
-        RegionName.Doug4: (RegionName.Doug5),
-        RegionName.Doug5: (RegionName.Doug6),
-        RegionName.Goopton1: (RegionName.Goopton2),
-        RegionName.Trorc1: (RegionName.Trorc2),
-        RegionName.RatLair: (RegionName.RatFight)
+        RegionName.OxAndCadence1: (RegionName.OxAndCadence2,),
+        RegionName.OxAndCadence2: (RegionName.OxAndCadence3,),
+        RegionName.OxAndCadence3: (RegionName.OxAndCadence4,),
+        RegionName.OxAndCadence4: (RegionName.OxAndCadence5,),
+        RegionName.OxAndCadence5: (RegionName.OxAndCadence6,),
+        RegionName.OxAndCadence6: (RegionName.OxAndCadence7,),
+        RegionName.Doug1: (RegionName.Doug2,),
+        RegionName.Doug2: (RegionName.Doug3,),
+        RegionName.Doug3: (RegionName.Doug4,),
+        RegionName.Doug4: (RegionName.Doug5,),
+        RegionName.Doug5: (RegionName.Doug6,),
+        RegionName.Goopton1: (RegionName.Goopton2,),
+        RegionName.Trorc1: (RegionName.Trorc2,),
+        RegionName.RatLair: (RegionName.RatFight,),
     }
 
     for source, targets in EtGRegionConnections.items():
