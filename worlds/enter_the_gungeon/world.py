@@ -44,7 +44,10 @@ class EnterTheGungeonWorld(World):
     # Our world class must have a static location_name_to_id and item_name_to_id defined.
     # We define these in regions.py and items.py respectively, so we just set them here.
     location_name_to_id = locations.LOCATION_NAME_TO_ID
-    item_name_to_id = items.ITEM_NAME_TO_DETAILS
+    # This works, but worth considering adjusting for something quicker/cleaner
+    item_name_to_id = {key: items.AMMONOMICON_DICTIONARY[key].itemID for key in items.AMMONOMICON_DICTIONARY}
+    item_name_to_id.update({key: items.ITEM_NAME_TO_DETAILS[key].itemID for key in items.ITEM_NAME_TO_DETAILS})
+    item_name_to_id.update({key: items.TRAP_DICTIONARY[key].itemID for key in items.TRAP_DICTIONARY})
 
     # There is always one region that the generator starts from & assumes you can always go back to.
     # This defaults to "Menu", but you can change it by overriding origin_region_name.
@@ -66,7 +69,7 @@ class EnterTheGungeonWorld(World):
     # Our world class must also have a create_item function that can create any one of our items by name at any time.
     # We also put this in a different file, the same one that create_items is in.
     def create_item(self, name: str) -> items.GungeonItem:
-        return items.create_item_with_correct_classification(self, name)
+        return items.create_item_with_details(self, name)
 
     # For features such as item links and panic-method start inventory, AP may ask your world to create extra filler.
     # The way it does this is by calling get_filler_item_name.
@@ -85,7 +88,6 @@ class EnterTheGungeonWorld(World):
             "hard_mode", "hammer", "extra_starting_chest", "confetti_explosiveness", "player_sprite"
         )
 
-    def generate_early(self) -> None:
+    #def generate_early(self) -> None:
         # Any logic we want to run before item or location generation
         # Such as changing quantity of things based on options.
-        items.TestProgressiveQuantity = 5

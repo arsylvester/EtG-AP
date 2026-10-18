@@ -258,3 +258,4 @@ def create_events(world: EnterTheGungeonWorld) -> None:
     # Many worlds use more data-driven approaches using dataclasses or NamedTuples.
     # However, it is worth understanding how the actual creation of regions and locations works,
     # That way, we're not just mindlessly copy-pasting! :)
+	return

@@ -1,18 +1,8 @@
 from dataclasses import dataclass
 
-from Options import Choice, OptionGroup, OptionSet, PerGameCommonOptions, Range, Toggle, DefaultOnToggle, DeathLink
+from .items import TRAP_DICTIONARY
 
-# TODO: I'm putting this traps list here, but we'll need to move it somewhere nicer later.
-trap_items: dict[str, int] = {
-    "Rats!! Trap": 8754200,
-    "Mimic Gun Trap": 8754201,
-    "Curse Trap": 8754202,
-    "Fumble Gun Trap": 8754203,
-    "Fire Trap": 8754204,
-    "Poison Trap": 8754205,
-    "Curse Meter Trap": 8754206,
-    "Enemy Trap": 8754207,
-}
+from Options import Choice, OptionGroup, OptionSet, PerGameCommonOptions, Range, Toggle, DefaultOnToggle, DeathLink
 
 class EnableHegemonyCreditScalingOption(DefaultOnToggle):
     """
@@ -37,7 +27,7 @@ class EnableTrapsOption(OptionSet):
     Control which traps should be included in the AP item pool.
     """
     display_name = "Enable Traps"
-    valid_keys = {trap for trap in trap_items.keys()}
+    valid_keys = {trap for trap in TRAP_DICTIONARY.keys()}
     default = valid_keys
 
 class TrapPercentageOption(Range):
