@@ -22,9 +22,9 @@ ProgCurseReduction = "Progressive Curse Reduction"
 ProgCoolness = "Progressive Coolness"
 ProgStartChest = "Progressive Start Chest"
 ProgShortCut = "Progressive Short Cut"
-FiveHedgemonyCredits= "5 Hedgemony Credits"
-TenHedgemonyCredits= "10 Hedgemony Credits"
-TwentyHedgemonyCredits= "20 Hedgemony Credits"
+FiveHegemonyCredits= "5 Hegemony Credits"
+TenHegemonyCredits= "10 Hegemony Credits"
+TwentyHegemonyCredits= "20 Hegemony Credits"
 PlayAsPilot = "Playable Character - The Pilot"
 PlayAsMarine = "Playable Character - The Marine"
 PlayAsConvict =  "Playable Character - The Convict"
@@ -57,87 +57,86 @@ thompson = "Thompson Sub-Machinegun"
 screecher = "Screecher"
 sticky_crossbow = "Sticky Crossbow"
 awp = "A.W.P."
-# zorgun
-# barrel
-# bow
-# dueling_pistol
-# mega_douser
-# crossbow
-# thunderclap
-# bee_hive
-# ak47
-# yari_launcher
-# heck_blaster
-# blooper
-# grenade_launcher
-# moonscraper
-# bsg
-# shades_revolver
-# dungeon_eagle
-# dart_gun
-# m1
-# nail_gun
-# light_gun
-# mailbox
-# vertebraek47
-# m1911
-# klobbe
-# void_marshal
-# tear_jerker
-# smileys_revolver
-# megahand
-# serious_cannon
-# magnum
-# rpg
-# freeze_ray
-# heroine
-# trank_gun
-# machine_pistol
-# skull_spitter
-# jolter
-# sniper_rifle
-# saa
-# regular_shotgun
-# crescent_crossbow
-# au_gun
-# laser_rifle
-# void_shotgun
-# 38_special
-# alien_sidearm
-# void_core_assault_rifle
-# hegemony_rifle
-# demon_head
-# bundle_of_wands
-# colt_1851
-# medkit
-# potion_of_lead_skin
-# knife_shield
-# proximity_mine
-# bullet_time
-# decoy
-# bubble_shield
-# supply_drop
-# makarov
-# budget_revolver
-# deck4rd
-# elephant_gun
-# unfinished_gun
-# vulcan_cannon
-# marine_sidearm
-# gamma_ray
-# robots_right_hand
-# rogue_special
-# eye_of_the_beholster
-# h4mmer
-# stinger
-# old_goldie
-# mac10
-# akey47
-# m16
-# polaris
-# patriot
-# rusty_sidearm
-# unicorn_horn
+zorgun = "Zorgun"
+barrel = "Barrel"
+bow = "Bow"
+dueling_pistol = "Dueling Pistol"
+mega_douser = "Mega Douser"
+crossbow = "Crossbow"
+thunderclap = "Thunderclap"
+bee_hive = "Bee Hive"
+ak47 = "AK-47"
+yari_launcher = "Yari Launcher"
+heck_blaster = "Heck Blaster"
+blooper = "Blooper"
+grenade_launcher = "Grenade Launcher"
+moonscraper= "Moonscraper"
+bsg = "BSG"
+shades_revolver = "Shades's Revolver"
+dungeon_eagle = "Dungeon Eagle"
+dart_gun = "Dart Gun"
+m1 = "M1"
+nail_gun = "Nail Gun"
+light_gun = "Light Gun"
+mailbox = "Mailbox"
+vertebraek47 = "VertebraeK-47"
+m1911 = "M1911"
+klobbe = "Klobbe"
+void_marshal = "Void Marshal"
+tear_jerker = "Tear Jerker"
+smileys_revolver = "Smiley's Revolver"
+megahand = "Megahand"
+serious_cannon = "Serious Cannon"
+magnum = "Magnum"
+rpg = "RPG"
+freeze_ray = "Freeze Ray"
+heroine = "Heroine"
+trank_gun = "Trank Gun"
+machine_pistol = "Machine Pistol"
+skull_spitter = "Skull Spitter"
+jolter = "Jolter"
+sniper_rifle = "Sniper Rifle"
+saa = "SAA"
+regular_shotgun = "Regular Shotgun"
+crescent_crossbow = "Crescent Crossbow"
+au_gun = "AU Gun"
+laser_rifle = "Laser Rifle"
+void_shotgun = "Void Shotgun"
+three_eight_special = "38 Special"
+alien_sidearm = "Alien Sidearm"
+void_core_assault_rifle = "Void Core Assault Rifle"
+hegemony_rifle = "Hegemony Rifle"
+demon_head = "Demon Head"
+bundle_of_wands = "Bundle of Wands"
+colt_1851 = "Colt 1851"
+medkit = "Medkit"
+potion_of_lead_skin = "Potion of Lead Skin"
+knife_shield = "Knife Shield"
+proximity_mine = "Proximity Mine"
+bullet_time = "Bullet Time"
+decoy = "Decoy"
+supply_drop = "Supply Drop"
+makarov = "Makarov"
+budget_revolver = "Budget Revolver"
+deck4rd = "Deck4rd"
+elephant_gun = "Elephant Gun"
+unfinished_gun = "Unfinished Gun"
+vulcan_cannon = "Vulcan Cannon"
+marine_sidearm = "Marine Sidearm"
+gamma_ray = "Gamma Ray"
+robots_right_hand = "Robots Right Hand"
+rogue_special = "Rogue Special"
+eye_of_the_beholster = "Eye of the Beholster"
+h4mmer = "H4mmer"
+stinger = "Stinger"
+old_goldie = "Old Goldie"
+mac10 = "MAC10"
+akey47 = "AKEY-47"
+m16 = "M16"
+polaris = "Polaris"
+patriot = "Patriot"
+rusty_sidearm = "Rusty Sidearm"
+unicorn_horn = "Unicorn Horn"
 # scope
 # ration
 # fortunes_favor
