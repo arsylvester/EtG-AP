@@ -169,6 +169,80 @@ DougLocations6 = {
     LocationName.BLUEPRINTBEETLE_GUNNER: 240213,
 }
 
+BreachLocations = {
+	LocationName.NPCJAILCELL_1: 400001,
+	LocationName.NPCJAILCELL_2: 400002,
+	LocationName.NPCJAILCELL_3: 400003,
+	LocationName.NPCJAILCELL_4: 400004,
+	LocationName.NPCJAILCELL_5: 400005,
+	LocationName.NPCJAILCELL_6: 400006,
+	LocationName.NPCJAILCELL_7: 400007,
+	LocationName.NPCJAILCELL_8: 400008,
+	LocationName.NPCJAILCELL_9: 400009,
+	LocationName.NPCJAILCELL_10: 400010,
+	LocationName.NPCJAILCELL_11: 400011,
+	LocationName.NPCJAILCELL_12: 400012,
+	LocationName.NPCJAILCELL_13: 400013,
+	LocationName.NPCJAILCELL_14: 400014,
+	LocationName.NPCJAILCELL_15: 400015,
+	LocationName.SHOP_HAS_MET_TRUCK: 45501,
+    LocationName.WINCHESTER_MET_PREVIOUSLY: 25506,
+    LocationName.SHERPA_ACTIVE_IN_ELEVATOR_ROOM: 30005,
+	LocationName.BLACKSMITH_ELEMENT1: 50105,
+	LocationName.BLACKSMITH_ELEMENT2: 50106,
+	LocationName.BLACKSMITH_ELEMENT3: 50107,
+	LocationName.BLACKSMITH_ELEMENT4: 50108,
+	LocationName.ACHIEVEMENT_NOBOSSDAMAGE_CASTLE: 300001,
+	LocationName.ACHIEVEMENT_NOBOSSDAMAGE_GUNGEON: 300002,
+	LocationName.ACHIEVEMENT_NOBOSSDAMAGE_MINES: 300003,
+	LocationName.ACHIEVEMENT_NOBOSSDAMAGE_HOLLOW: 300004,
+	LocationName.ACHIEVEMENT_NOBOSSDAMAGE_FORGE: 300005,
+
+    LocationName.BOSSKILLED_BULLET_KING: 10000,
+	LocationName.BOSSKILLED_BULLET_BROS: 10010,
+	LocationName.BOSSKILLED_GATLING_GULL: 10100,
+	LocationName.BOSSKILLED_MEDUZI: 10110,
+	LocationName.BOSSKILLED_BASHELLISK: 10120,
+    LocationName.BOSSKILLED_BEHOLSTER: 10300,
+	LocationName.BOSSKILLED_TANK: 10130,
+	LocationName.BOSSKILLED_POWDERSKULL: 10140,
+    LocationName.BOSSKILLED_MINEFLAYER: 10600,
+    LocationName.BOSSKILLED_HIGH_PRIEST: 10400,
+    LocationName.BOSSKILLED_STATUES: 10160,
+    LocationName.BOSSKILLED_DEMONWALL: 10170,
+	LocationName.BOSSKILLED_DOORMIMIC: 10150,
+    LocationName.BOSSKILLED_DRAGUN: 10500,
+    LocationName.BOSSKILLED_MINI_FUSELIER: 10602,
+    LocationName.BOSSKILLED_MINI_MAGICIAN: 400100,
+
+    LocationName.ACHIEVEMENT_CASTLE_MANYTIMES: 300007,
+	LocationName.ACHIEVEMENT_GUNGEON_MANYTIMES: 300008,
+	LocationName.ACHIEVEMENT_MINES_MANYTIMES: 300009,
+	LocationName.ACHIEVEMENT_HOLLOW_MANYTIMES: 300010,
+	LocationName.ACHIEVEMENT_FORGE_MANYTIMES: 300011,
+	LocationName.ACHIEVEMENT_STEAL_THINGS: 300013,
+	LocationName.ACHIEVEMENT_TABLE_PIT: 300015,
+	LocationName.ACHIEVEMENT_BEASTMODE: 300016,
+	LocationName.ACHIEVEMENT_TABLES_FLIPPED: 300017,
+	LocationName.ACHIEVEMENT_SURPRISE_MIMIC: 300022,
+	LocationName.ACHIEVEMENT_KILL_JAMMED_BOSS: 300024,
+	LocationName.ACHIEVEMENT_BIGGEST_WALLET: 300025,
+}
+
+OtherLocations = {
+    LocationName.BLACKSMITH_BULLET_COMPLETE: 50120,
+    LocationName.BOSSKILLED_BLOBULORD: 10190,
+    LocationName.BOSSKILLED_OLDKING: 10180,
+	LocationName.BOSSKILLED_RESOURCEFULRAT: 10220,
+	LocationName.BOSSKILLED_HELICOPTER: 10505,
+	LocationName.BOSSKILLED_LICH: 19000, #TODO add to a region
+	LocationName.BOSSKILLED_HIGHDRAGUN: 19001, #TODO add to a region
+    LocationName.TUTORIAL_KILLED_MANFREDS_RIVAL: 2002, #TODO add to a region
+    LocationName.ACHIEVEMENT_BREACH_POPULATED: 300014, #TODO add to a region
+    LocationName.ACHIEVEMENT_ACCESS_OUBLIETTE: 300020,
+	LocationName.ACHIEVEMENT_ACCESS_ABBEY: 300021,
+}
+
 AllLocationIds = {
     **OxAndCadenceLocations1,
     **OxAndCadenceLocations2,
@@ -188,6 +262,8 @@ AllLocationIds = {
     **DougLocations4,
     **DougLocations5,
     **DougLocations6,
+	**BreachLocations,
+    **OtherLocations,
 }
 
 
@@ -219,7 +295,7 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
     #top_left_room = world.get_region("Top Left Room")
     #bottom_right_room = world.get_region("Bottom Right Room")
     #right_room = world.get_region("Right Room")
-    breach = world.get_region(RegionName.Breach)
+    world.get_region(RegionName.Breach).add_locations(BreachLocations, GungeonLocation)
     world.get_region(RegionName.OxAndCadence1).add_locations(OxAndCadenceLocations1, GungeonLocation)
     world.get_region(RegionName.OxAndCadence2).add_locations(OxAndCadenceLocations2, GungeonLocation)
     world.get_region(RegionName.OxAndCadence3).add_locations(OxAndCadenceLocations3, GungeonLocation)
@@ -241,6 +317,23 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
 
     world.get_region(RegionName.Trorc1).add_locations(TrorcLocations1, GungeonLocation)
     world.get_region(RegionName.Trorc2).add_locations(TrorcLocations2, GungeonLocation)
+
+    oubliette = world.get_region(RegionName.Oubliette)
+    oubliette.add_locations(get_location_names_with_ids(
+        [LocationName.ACHIEVEMENT_ACCESS_OUBLIETTE, LocationName.BOSSKILLED_BLOBULORD]))
+
+    abbey = world.get_region(RegionName.Abbey)
+    abbey.add_locations(get_location_names_with_ids(
+        [LocationName.ACHIEVEMENT_ACCESS_ABBEY, LocationName.BOSSKILLED_OLDKING]))
+
+    ratFight = world.get_region(RegionName.RatFight)
+    ratFight.add_locations(get_location_names_with_ids([LocationName.BOSSKILLED_RESOURCEFULRAT]))
+
+    rngDep = world.get_region(RegionName.RngDepartment)
+    rngDep.add_locations(get_location_names_with_ids([LocationName.BOSSKILLED_HELICOPTER]))
+
+    pastKillable = world.get_region(RegionName.PastKillable)
+    pastKillable.add_locations(get_location_names_with_ids([LocationName.BLACKSMITH_BULLET_COMPLETE]))
 
     # One way to create locations is by just creating them directly via their constructor.
     #bottom_left_chest = GungeonLocation(
