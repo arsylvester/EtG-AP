@@ -28,21 +28,37 @@ def create_and_connect_regions(world: EnterTheGungeonWorld) -> None:
 def create_all_regions(world: EnterTheGungeonWorld) -> None:
     # Creating a region is as simple as calling the constructor of the Region class.
     breach = Region(RegionName.Breach, world.player, world.multiworld)
-    ox_and_cadence = Region(RegionName.OxAndCadence, world.player, world.multiworld)
-    doug = Region(RegionName.Doug, world.player, world.multiworld)
-    goopton = Region(RegionName.Goopton, world.player, world.multiworld)
-    trorc = Region(RegionName.Trorc, world.player, world.multiworld)
+    ox_and_cadence_1 = Region(RegionName.OxAndCadence1, world.player, world.multiworld)
+    ox_and_cadence_2 = Region(RegionName.OxAndCadence2, world.player, world.multiworld)
+    ox_and_cadence_3 = Region(RegionName.OxAndCadence3, world.player, world.multiworld)
+    ox_and_cadence_4 = Region(RegionName.OxAndCadence4, world.player, world.multiworld)
+    ox_and_cadence_5 = Region(RegionName.OxAndCadence5, world.player, world.multiworld)
+    ox_and_cadence_6 = Region(RegionName.OxAndCadence6, world.player, world.multiworld)
+    ox_and_cadence_7 = Region(RegionName.OxAndCadence7, world.player, world.multiworld)
+    ox_and_cadence_8 = Region(RegionName.OxAndCadence8, world.player, world.multiworld)
+    doug_1 = Region(RegionName.Doug1, world.player, world.multiworld)
+    doug_2 = Region(RegionName.Doug2, world.player, world.multiworld)
+    doug_3 = Region(RegionName.Doug3, world.player, world.multiworld)
+    doug_4 = Region(RegionName.Doug4, world.player, world.multiworld)
+    doug_5 = Region(RegionName.Doug5, world.player, world.multiworld)
+    doug_6 = Region(RegionName.Doug6, world.player, world.multiworld)
+    goopton_1 = Region(RegionName.Goopton1, world.player, world.multiworld)
+    goopton_2 = Region(RegionName.Goopton2, world.player, world.multiworld)
+    trorc_1 = Region(RegionName.Trorc1, world.player, world.multiworld)
+    trorc_2 = Region(RegionName.Trorc2, world.player, world.multiworld)
     tinker = Region(RegionName.Tinker, world.player, world.multiworld)
     payday = Region(RegionName.Payday, world.player, world.multiworld)
     past_killable = Region(RegionName.PastKillable, world.player, world.multiworld)
     oubliette = Region(RegionName.Oubliette, world.player, world.multiworld)
     abbey = Region(RegionName.Abbey, world.player, world.multiworld)
     rat_lair = Region(RegionName.RatLair, world.player, world.multiworld)
-    rat_maze = Region(RegionName.RatMaze, world.player, world.multiworld)
+    rat_maze = Region(RegionName.RatFight, world.player, world.multiworld)
     rng_department = Region(RegionName.RngDepartment, world.player, world.multiworld)
 
     # Let's put all these regions in a list.
-    regions = [breach, ox_and_cadence, doug, goopton, trorc, tinker, payday, past_killable, oubliette, abbey, rat_lair,
+    regions = [breach, ox_and_cadence_1, ox_and_cadence_2, ox_and_cadence_3, ox_and_cadence_4, ox_and_cadence_5,
+               ox_and_cadence_6, ox_and_cadence_7, ox_and_cadence_8, doug_1, doug_2, doug_3, doug_4, doug_5, doug_6,
+               goopton_1, goopton_2, trorc_1, trorc_2, tinker, payday, past_killable, oubliette, abbey, rat_lair,
                rat_maze, rng_department]
 
     # Some regions may only exist if the player enables certain options.
@@ -85,6 +101,7 @@ def connect_regions(world: EnterTheGungeonWorld) -> None:
         RegionName.OxAndCadence4: (RegionName.OxAndCadence5,),
         RegionName.OxAndCadence5: (RegionName.OxAndCadence6,),
         RegionName.OxAndCadence6: (RegionName.OxAndCadence7,),
+        RegionName.OxAndCadence7: (RegionName.OxAndCadence8,),
         RegionName.Doug1: (RegionName.Doug2,),
         RegionName.Doug2: (RegionName.Doug3,),
         RegionName.Doug3: (RegionName.Doug4,),
