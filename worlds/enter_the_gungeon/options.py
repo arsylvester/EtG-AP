@@ -1,152 +1,181 @@
 from dataclasses import dataclass
 
-from Options import Choice, OptionGroup, PerGameCommonOptions, Range, Toggle
+from Options import Choice, OptionGroup, OptionSet, PerGameCommonOptions, Range, Toggle, DefaultOnToggle, DeathLink
 
-# In this file, we define the options the player can pick.
-# The most common types of options are Toggle, Range and Choice.
+# TODO: I'm putting this traps list here, but we'll need to move it somewhere nicer later.
+trap_items: dict[str, int] = {
+    "Rats!! Trap": 8754200,
+    "Mimic Gun Trap": 8754201,
+    "Curse Trap": 8754202,
+    "Fumble Gun Trap": 8754203,
+    "Fire Trap": 8754204,
+    "Poison Trap": 8754205,
+    "Curse Meter Trap": 8754206,
+    "Enemy Trap": 8754207,
+}
 
-# Options will be in the game's template yaml.
-# They will be represented by checkboxes, sliders etc. on the game's options page on the website.
-# (Note: Options can also be made invisible from either of these places by overriding Option.visibility.
-#  APQuest doesn't have an example of this, but this can be used for secret / hidden / advanced options.)
-
-# For further reading on options, you can also read the Options API Document:
-# https://github.com/ArchipelagoMW/Archipelago/blob/main/docs/options%20api.md
-
-
-# The first type of Option we'll discuss is the Toggle.
-# A toggle is an option that can either be on or off. This will be represented by a checkbox on the website.
-# The default for a toggle is "off".
-# If you want a toggle to be on by default, you can use the "DefaultOnToggle" class instead of the "Toggle" class.
-class HardMode(Toggle):
+class EnableHegemonyCreditScalingOption(DefaultOnToggle):
     """
-    In hard mode, the basic enemy and the final boss will have more health.
-    The Health Upgrades become progression, as they are now required to beat the final boss.
+    Enable a progressive scaling AP item which multiplies to the amount of Hegemony Credits dropped.
+
+    TODO: Complete this description! 
     """
+    display_name = "Progressive Scaling for Hegemony Credits"
 
-    # The docstring of an option is used as the description on the website and in the template yaml.
-
-    # You'll also want to set a display name, which will determine what the option is called on the website.
-    display_name = "Hard Mode"
-
-
-class Hammer(Toggle):
+class EnableCasingScalingOption(DefaultOnToggle):
     """
-    Adds another item to the itempool: The Hammer.
-    The top middle chest will now be locked behind a breakable wall, requiring the Hammer.
+    Enable a progressive scaling multiplier to the amount of Casings dropped.
+
+    The multiplier is controlled by a progressive AP item.
+
+    TODO: Complete this description! 
     """
+    display_name = "Progressive Scaling for Casings"
 
-    display_name = "Hammer"
-
-
-class ExtraStartingChest(Toggle):
+class EnableTrapsOption(OptionSet):
     """
-    Adds an extra chest in the bottom left, making room for an extra Confetti Cannon.
+    Control which traps should be included in the AP item pool.
     """
+    display_name = "Enable Traps"
+    valid_keys = {trap for trap in trap_items.keys()}
+    default = valid_keys
 
-    display_name = "Extra Starting Chest"
-
-
-class TrapChance(Range):
+class TrapPercentageOption(Range):
     """
-    Percentage chance that any given Confetti Cannon will be replaced by a Math Trap.
+    Define the percentage of filler AP item slots that become traps.
+
+    (All gungeon guns/items are considered filler AP items)
     """
-
-    display_name = "Trap Chance"
-
+    display_name = "Trap Percentage"
     range_start = 0
     range_end = 100
+    default = 5
+
+class LimitStartingGungeoneerOption(OptionSet):
+    """
+    Start the game with only 1 playable gungeoneer. All remaining gungeoneers will be unlocked as AP items.
+
+    Select **"Off"** to start with all 4 default gungeoneers unlocked. 
+    """ 
+    display_name = "Start With Single Playable Character"
+    option_off = 0
+    option_convict = 1
+    option_hunter = 2
+    option_marine = 3
+    option_hunter = 4
+    option_bullet = 5
+    option_robot = 6
+    option_paradox = 7
+    option_gunslinger = 8
+    option_random_character_from_base_roster = 9
+    option_random_character_from_full_roster = 10
     default = 0
 
-
-class StartWithOneConfettiCannon(Toggle):
+class CurseReductionModeOption(Toggle):
     """
-    Start with a confetti cannon already in your inventory.
-    Why? Because you deserve it. You get to celebrate yourself without doing any work first.
+    Begin the playthrough with a high curse value that persists between runs. The curse level is permanently lowered via a progressive AP item.  
     """
+    display_name = "Curse Reduction Mode (Not Implemented)"
 
-    display_name = "Start With One Confetti Cannon"
-
-
-# A Range is a numeric option with a min and max value. This will be represented by a slider on the website.
-class ConfettiExplosiveness(Range):
+class IncludeSkinsInItemPool(DefaultOnToggle):
     """
-    How much confetti each use of a confetti cannon will fire.
+    Unlock alternate character/weapon skins as AP items.
+
+    If false, the alternate skins will be excluded from the item pool.
     """
+    # TODO: Enhance the description to indicate if the skins can still be unlocked in-game if the value is False.
+    display_name = "Alternate Skins from AP Items"
 
-    display_name = "Confetti Explosiveness"
-
-    range_start = 0
-    range_end = 10
-
-    # Range options must define an explicit default value.
-    default = 3
-
-
-# A Choice is an option with multiple discrete choices. This will be represented by a dropdown on the website.
-class PlayerSprite(Choice):
+class NoHitBossesAsProgressionOption(Choice):
     """
-    The sprite that the player will have.
+    Define how the AP logic should prioritize earning a floor's Master Round for the first time.
+
+    - **Allow Priority:** You may be expected to No-Hit floor bosses to unlock progression AP items.
+    - **Forbid Priority:** Locations achieved by No-Hitting a floor boss will never include progression AP items.
     """
+    display_name = "Earning Master Rounds"
+    option_allow_priority_items = 1
+    option_forbid_priority_items = 2
+    default = 1
 
-    display_name = "Player Sprite"
+class MiniBossesAsProgressionOption(Choice):
+    """
+    Define how the AP logic should prioritize defeating mini-bosses for the first time.
 
-    option_human = 0
-    option_duck = 1
-    option_horse = 2
-    option_cat = 3
+    - **Allow Priority:** You may be expected to defeat specific mini-bosses to unlock progression AP items.
+    - **Forbid Priority:** Locations achieved by defeating specific mini-bosses will never include progression AP items.       
+    """
+    display_name = "Mini Bosses"
+    option_allow_priority_items = 1
+    option_forbid_priority_items = 2
+    default = 1
 
-    # Choice options must define an explicit default value.
-    default = option_human
+class KillingRatAsProgressionOption(Choice):
+    """
+    Define how the AP logic should handle defeating the first 2 phases of the Resourceful Rat boss fight.
 
-    # For choices, you can also define aliases.
-    # For example, we could make it so "player_sprite: kitty" resolves to "player_sprite: cat" like this:
-    alias_kitty = option_cat
+    - **Allow Priority:** To unlock progression AP items, you may be expected to complete the first 2 phases of the rat fight.
+    - **Forbid Priority:** This location will never include progression AP items.       
+    """
+    display_name = "Resourceful Rat (Phases 1 & 2)"
+    option_allow_priority_items = 1
+    option_forbid_priority_items = 2
+    default = 1
 
+class RatChestsAsProgressionOption(Choice):
+    """
+    Define how the AP logic should handle the chests unlocked by defeating the Resourceful Rat's punch-out phase.
 
-# We must now define a dataclass inheriting from PerGameCommonOptions that we put all our options in.
-# This is in the format "option_name_in_snake_case: OptionClassName".
+    - **Allow Priority:** The rat chests may contain progression AP items.
+    - **Forbid Priority:** The rat chests will never include progression AP items.       
+    """
+    # TODO: Fact check the description for this option.
+    display_name = "Resourceful Rat (Punch Out)"
+    option_allow_priority_items = 1
+    option_forbid_priority_items = 2
+    default = 1
+
+class IncludeFrifleQuestsInLogicOption(Toggle):
+    """
+    Determine if the hunting quests given Frifle and the Grey Mauser should be included in the AP logic as locations. 
+    """
+    display_name = "Include Hunting Quests"
+
 @dataclass
 class GungeonOptions(PerGameCommonOptions):
-    hard_mode: HardMode
-    hammer: Hammer
-    extra_starting_chest: ExtraStartingChest
-    start_with_one_confetti_cannon: StartWithOneConfettiCannon
-    trap_chance: TrapChance
-    confetti_explosiveness: ConfettiExplosiveness
-    player_sprite: PlayerSprite
+    limit_starting_gungeoneer: LimitStartingGungeoneerOption
+    death_link: DeathLink
+    curse_reduction_mode: CurseReductionModeOption
+    include_hunting_quests: IncludeFrifleQuestsInLogicOption
+    include_skins: IncludeSkinsInItemPool
+    enable_traps: EnableTrapsOption
+    traps_percentage: TrapPercentageOption
+
+    # Currency Scaling Options
+    hegemony_scaling: EnableHegemonyCreditScalingOption
+    casing_scaling: EnableCasingScalingOption
+
+    # Priority Location Controls
+    priority_nohit_bosses: NoHitBossesAsProgressionOption
+    priority_mini_bosses: MiniBossesAsProgressionOption
+    priority_rat_fight: KillingRatAsProgressionOption
+    priority_rat_chests: RatChestsAsProgressionOption
 
 
 # If we want to group our options by similar type, we can do so as well. This looks nice on the website.
 option_groups = [
     OptionGroup(
-        "Gameplay Options",
-        [HardMode, Hammer, ExtraStartingChest, StartWithOneConfettiCannon, TrapChance],
+        "Currency Scaling Options", [
+            EnableHegemonyCreditScalingOption, 
+            EnableCasingScalingOption
+        ],
     ),
     OptionGroup(
-        "Aesthetic Options",
-        [ConfettiExplosiveness, PlayerSprite],
+        "Priority Location Controls", [
+            NoHitBossesAsProgressionOption,
+            MiniBossesAsProgressionOption, 
+            KillingRatAsProgressionOption, 
+            RatChestsAsProgressionOption
+        ],
     ),
 ]
-
-# Finally, we can define some option presets if we want the player to be able to quickly choose a specific "mode".
-option_presets = {
-    "boring": {
-        "hard_mode": False,
-        "hammer": False,
-        "extra_starting_chest": False,
-        "start_with_one_confetti_cannon": False,
-        "trap_chance": 0,
-        "confetti_explosiveness": ConfettiExplosiveness.range_start,
-        "player_sprite": PlayerSprite.option_human,
-    },
-    "the true way to play": {
-        "hard_mode": True,
-        "hammer": True,
-        "extra_starting_chest": True,
-        "start_with_one_confetti_cannon": True,
-        "trap_chance": 50,
-        "confetti_explosiveness": ConfettiExplosiveness.range_end,
-        "player_sprite": PlayerSprite.option_duck,
-    },
-}
