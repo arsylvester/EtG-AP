@@ -66,7 +66,7 @@ class LimitStartingGungeoneerOption(OptionSet):
     option_convict = 1
     option_hunter = 2
     option_marine = 3
-    option_hunter = 4
+    option_pilot = 4
     option_bullet = 5
     option_robot = 6
     option_paradox = 7

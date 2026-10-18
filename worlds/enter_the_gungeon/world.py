@@ -7,6 +7,8 @@ from worlds.AutoWorld import World
 # Imports of your world's files must be relative.
 from . import items, locations, regions, rules, web_world
 from . import options as gungeon_options  # rename due to a name conflict with World.options
+from .Names import RegionName
+
 
 # APQuest will go through all the parts of the world api one step at a time,
 # with many examples and comments across multiple files.
@@ -34,7 +36,7 @@ class EnterTheGungeonWorld(World):
     game = "Enter The Gungeon"
 
     # The WebWorld is a definition class that governs how this world will be displayed on the website.
-    web = web_world.APGungeonWebWorld()
+    #web = web_world.APGungeonWebWorld()
 
     # This is how we associate the options defined in our options.py with our world.
     # (Note: options.py has been imported as "apquest_options" at the top of this file to avoid a name conflict)
@@ -43,7 +45,7 @@ class EnterTheGungeonWorld(World):
 
     # Our world class must have a static location_name_to_id and item_name_to_id defined.
     # We define these in regions.py and items.py respectively, so we just set them here.
-    location_name_to_id = locations.LOCATION_NAME_TO_ID
+    location_name_to_id = locations.AllLocationIds
     # This works, but worth considering adjusting for something quicker/cleaner
     item_name_to_id = {key: items.AMMONOMICON_DICTIONARY[key].itemID for key in items.AMMONOMICON_DICTIONARY}
     item_name_to_id.update({key: items.ITEM_NAME_TO_DETAILS[key].itemID for key in items.ITEM_NAME_TO_DETAILS})
@@ -51,7 +53,7 @@ class EnterTheGungeonWorld(World):
 
     # There is always one region that the generator starts from & assumes you can always go back to.
     # This defaults to "Menu", but you can change it by overriding origin_region_name.
-    origin_region_name = "Overworld"
+    origin_region_name = RegionName.Breach
 
     # Our world class must have certain functions ("steps") that get called during generation.
     # The main ones are: create_regions, set_rules, create_items.
@@ -82,11 +84,11 @@ class EnterTheGungeonWorld(World):
     # There may be data that the game client will need to modify the behavior of the game.
     # This is what slot_data exists for. Upon every client connection, the slot's slot_data is sent to the client.
     # slot_data is just a dictionary using basic types, that will be converted to json when sent to the client.
-    def fill_slot_data(self) -> Mapping[str, Any]:
-        # If you need access to the player's chosen options on the client side, there is a helper for that.
-        return self.options.as_dict(
-            "hard_mode", "hammer", "extra_starting_chest", "confetti_explosiveness", "player_sprite"
-        )
+    # def fill_slot_data(self) -> Mapping[str, Any]:
+    #     # If you need access to the player's chosen options on the client side, there is a helper for that.
+    #     return self.options.as_dict(
+    #         "hard_mode", "hammer", "extra_starting_chest", "confetti_explosiveness", "player_sprite"
+    #     )
 
     #def generate_early(self) -> None:
         # Any logic we want to run before item or location generation

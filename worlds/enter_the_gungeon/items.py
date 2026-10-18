@@ -20,6 +20,7 @@ class ItemDetails:
     classification: ItemClassification
     quantity: int
     isBaseAmmonomicon: bool = False
+    grouping: str = ""
 
 # All unlockable guns/items will use the same ID as Gungeon uses. Then all custom unlocks will start at 1000.
 ITEM_NAME_TO_DETAILS = {
@@ -43,14 +44,43 @@ ITEM_NAME_TO_DETAILS = {
     ItemNames.Cursula: ItemDetails(1015, ItemClassification.useful, 1),
     ItemNames.Synergrace: ItemDetails(1016, ItemClassification.useful, 1),
     ItemNames.Vampire: ItemDetails(1017, ItemClassification.useful, 1),
-    # progressive
+    # Progressive
     ItemNames.ProgCasingMult: ItemDetails(1018, ItemClassification.useful, 3),
-    ItemNames.ProgCredMult: ItemDetails(1019, ItemClassification.useful, 3),
-    ItemNames.ProgCurseReduction: ItemDetails(1020, ItemClassification.useful, 3),
+    ItemNames.ProgCredMult: ItemDetails(1019, ItemClassification.progression, 3),
+    ItemNames.ProgCurseReduction: ItemDetails(1020, ItemClassification.progression, 3),
     ItemNames.ProgCoolness: ItemDetails(1021, ItemClassification.useful, 3),
-    ItemNames.ProgStartChest: ItemDetails(1022, ItemClassification.useful, 5),
-    ItemNames.ProgShortCut: ItemDetails(1023, ItemClassification.useful, 5),
-    ItemNames.FiveHegemonyCredits: ItemDetails(1024, ItemClassification.useful, 5),
+    ItemNames.ProgStartChest: ItemDetails(1022, ItemClassification.progression, 5),
+    ItemNames.ProgShortCut: ItemDetails(1023, ItemClassification.progression, 5),
+    ItemNames.FiveHegemonyCredits: ItemDetails(1024, ItemClassification.useful | ItemClassification.skip_balancing, 3),
+    ItemNames.TenHegemonyCredits: ItemDetails(1025, ItemClassification.useful | ItemClassification.skip_balancing, 3),
+    ItemNames.TwentyHegemonyCredits: ItemDetails(1026, ItemClassification.useful, 3),
+    # Characters
+    ItemNames.PlayAsPilot: ItemDetails(1027, ItemClassification.progression | ItemClassification.useful, 1, False, "character"),
+    ItemNames.PlayAsMarine: ItemDetails(1028, ItemClassification.progression | ItemClassification.useful, 1, False, "character"),
+    ItemNames.PlayAsConvict: ItemDetails(1029, ItemClassification.progression | ItemClassification.useful, 1, False, "character"),
+    ItemNames.PlayAsHunter: ItemDetails(1030, ItemClassification.progression | ItemClassification.useful, 1, False, "character"),
+    ItemNames.PlayAsRobot: ItemDetails(1031, ItemClassification.progression | ItemClassification.useful, 1, False, "character"),
+    ItemNames.PlayAsBullet: ItemDetails(1032, ItemClassification.progression | ItemClassification.useful, 1, False, "character"),
+    ItemNames.PlayAsGunslinger: ItemDetails(1033, ItemClassification.progression, 1, False, "character"),
+    # Cosmetic
+    ItemNames.CosmeticKnight: ItemDetails(1034, ItemClassification.filler, 1, False, "cosmetic"),
+    ItemNames.CosmeticBeastmaster: ItemDetails(1035, ItemClassification.filler, 1, False, "cosmetic"),
+    ItemNames.CosmeticJailbird: ItemDetails(1036, ItemClassification.filler, 1, False, "cosmetic"),
+    ItemNames.CosmeticRogue: ItemDetails(1037, ItemClassification.filler, 1, False, "cosmetic"),
+    ItemNames.CosmeticTermbot: ItemDetails(1038, ItemClassification.filler, 1, False, "cosmetic"),
+    ItemNames.CosmeticRabbit: ItemDetails(1039, ItemClassification.filler, 1, False, "cosmetic"),
+    ItemNames.CosmeticShell: ItemDetails(1040, ItemClassification.filler, 1, False, "cosmetic"),
+    # Key Items
+    ItemNames.Payday: ItemDetails(1041, ItemClassification.progression | ItemClassification.useful, 1),
+    ItemNames.PrimePrimer: ItemDetails(1042, ItemClassification.progression | ItemClassification.useful, 1),
+    ItemNames.PlanarLead: ItemDetails(1043, ItemClassification.progression | ItemClassification.useful, 1),
+    ItemNames.ObsidianShellCasing: ItemDetails(1044, ItemClassification.progression | ItemClassification.useful, 1),
+    ItemNames.ArcanePowder: ItemDetails(1045, ItemClassification.progression | ItemClassification.useful, 1),
+    ItemNames.OublietteUnlock: ItemDetails(1046, ItemClassification.progression | ItemClassification.useful, 1),
+    ItemNames.OldCrest: ItemDetails(1047, ItemClassification.progression | ItemClassification.useful, 1),
+    ItemNames.GnawedKey: ItemDetails(1048, ItemClassification.progression | ItemClassification.useful, 1),
+    ItemNames.InfuriatingNote: ItemDetails(1049, ItemClassification.progression | ItemClassification.useful, 1),
+    ItemNames.RnGDepartmentUnlock: ItemDetails(1050, ItemClassification.progression | ItemClassification.useful, 1),
 }
 
 AMMONOMICON_DICTIONARY = {
@@ -170,8 +200,6 @@ class GungeonItem(Item):
 # To do this, it must define a function called world.get_filler_item_name(), which we will define in world.py later.
 # For now, let's make a function that returns the name of a random filler item here in items.py.
 def get_random_filler_item_name(world: EnterTheGungeonWorld) -> str:
-    # TODO: Set up special logic that most of the filler will be unique gungeon gun/item unlocks
-
     if world.random.randint(0, 99) < world.options.traps_percentage:
         return list(TRAP_DICTIONARY)[world.random.randint(0, len(TRAP_DICTIONARY)) - 1]
     elif len(FILLER_TO_PULL_FROM) <= 0:
@@ -182,8 +210,6 @@ def get_random_filler_item_name(world: EnterTheGungeonWorld) -> str:
 
 
 def create_item_with_details(world: EnterTheGungeonWorld, name: str) -> GungeonItem:
-    #TODO: Include any changes to items depending on options here.
-
     if name in ITEM_NAME_TO_DETAILS:
         return GungeonItem(name, ITEM_NAME_TO_DETAILS[name].classification, ITEM_NAME_TO_DETAILS[name].itemID, world.player)
     elif name in AMMONOMICON_DICTIONARY:
@@ -194,6 +220,22 @@ def create_item_with_details(world: EnterTheGungeonWorld, name: str) -> GungeonI
     # We should never get here, but return a safe item to have multiple of is somehow we do.
     return GungeonItem(ItemNames.FiveHedgemonyCredits, ITEM_NAME_TO_DETAILS[ItemNames.FiveHedgemonyCredits].classification, ITEM_NAME_TO_DETAILS[ItemNames.FiveHedgemonyCredits].itemID, world.player)
 
+def check_for_options_rule(world: EnterTheGungeonWorld, name: str, item: ItemDetails) -> bool:
+    should_add = True
+    if name == ItemNames.ProgCasingMult and not world.options.casing_scaling:
+        should_add = False
+    if name == ItemNames.ProgCurseReduction and not world.options.curse_reduction_mode:
+        should_add = False
+    if name == ItemNames.ProgCredMult and not world.options.hegemony_scaling:
+        should_add = False
+    if name == ItemNames.ProgStartChest and not world.options.progressive_start_chest:
+        should_add = False
+    if item.grouping == "cosmetic" and not world.options.include_skins:
+        should_add = False
+    if item.grouping == "character":
+        # Handle characters separately, so don't add now
+        should_add = False
+    return should_add
 
 # With those two helper functions defined, let's now get to actually creating and submitting our itempool.
 def create_all_items(world: EnterTheGungeonWorld) -> None:
@@ -206,7 +248,60 @@ def create_all_items(world: EnterTheGungeonWorld) -> None:
     item_pool: list[Item] = []
     for key in ITEM_NAME_TO_DETAILS:
         for count in range(ITEM_NAME_TO_DETAILS[key].quantity):
-            item_pool.append(world.create_item(key))
+            if check_for_options_rule(world, key, ITEM_NAME_TO_DETAILS[key]):
+                item_pool.append(world.create_item(key))
+
+    # Character items
+    character_items_to_add: list[str] = [
+        ItemNames.PlayAsPilot,
+        ItemNames.PlayAsHunter,
+        ItemNames.PlayAsConvict,
+        ItemNames.PlayAsMarine,
+        ItemNames.PlayAsBullet,
+        ItemNames.PlayAsRobot,
+        ItemNames.PlayAsGunslinger
+    ]
+
+    # Depending on the option, precollect the character(s) available at the start.
+    match world.options.limit_starting_gungeoneer:
+        case "off":
+            character_items_to_add.remove(ItemNames.PlayAsPilot)
+            world.push_precollected(world.create_item(ItemNames.PlayAsPilot))
+            character_items_to_add.remove(ItemNames.PlayAsMarine)
+            world.push_precollected(world.create_item(ItemNames.PlayAsMarine))
+            character_items_to_add.remove(ItemNames.PlayAsConvict)
+            world.push_precollected(world.create_item(ItemNames.PlayAsConvict))
+            character_items_to_add.remove(ItemNames.PlayAsHunter)
+            world.push_precollected(world.create_item(ItemNames.PlayAsHunter))
+        case "pilot":
+            character_items_to_add.remove(ItemNames.PlayAsPilot)
+            world.push_precollected(world.create_item(ItemNames.PlayAsPilot))
+        case "convict":
+            character_items_to_add.remove(ItemNames.PlayAsConvict)
+            world.push_precollected(world.create_item(ItemNames.PlayAsConvict))
+        case "marine":
+            character_items_to_add.remove(ItemNames.PlayAsMarine)
+            world.push_precollected(world.create_item(ItemNames.PlayAsMarine))
+        case "hunter":
+            character_items_to_add.remove(ItemNames.PlayAsHunter)
+            world.push_precollected(world.create_item(ItemNames.PlayAsHunter))
+        case "bullet":
+            character_items_to_add.remove(ItemNames.PlayAsBullet)
+            world.push_precollected(world.create_item(ItemNames.PlayAsBullet))
+        case "robot":
+            character_items_to_add.remove(ItemNames.PlayAsRobot)
+            world.push_precollected(world.create_item(ItemNames.PlayAsRobot))
+        case "gunslinger":
+            character_items_to_add.remove(ItemNames.PlayAsGunslinger)
+            world.push_precollected(world.create_item(ItemNames.PlayAsGunslinger))
+        case "random_character_from_base_roster":
+            world.push_precollected(world.create_item(character_items_to_add.pop(world.random.randint(0, 3))))
+        case "random_character_from_full_roster":
+            world.push_precollected(world.create_item(character_items_to_add.pop(world.random.randint(0, len(character_items_to_add)) - 1)))
+
+    # Add remaining characters
+    for character in character_items_to_add:
+        item_pool.append(world.create_item(character))
 
     # The length of our itempool is easy to determine, since we have it as a list.
     number_of_items = len(item_pool)
