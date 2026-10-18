@@ -31,7 +31,7 @@ class EnterTheGungeonWorld(World):
     # The docstring should contain a description of the game, to be displayed on the WebHost.
 
     # You must override the "game" field to say the name of the game.
-    game = "EnterTheGungeon"
+    game = "Enter The Gungeon"
 
     # The WebWorld is a definition class that governs how this world will be displayed on the website.
     web = web_world.APGungeonWebWorld()
@@ -44,7 +44,7 @@ class EnterTheGungeonWorld(World):
     # Our world class must have a static location_name_to_id and item_name_to_id defined.
     # We define these in regions.py and items.py respectively, so we just set them here.
     location_name_to_id = locations.LOCATION_NAME_TO_ID
-    item_name_to_id = items.ITEM_NAME_TO_ID
+    item_name_to_id = items.ITEM_NAME_TO_DETAILS
 
     # There is always one region that the generator starts from & assumes you can always go back to.
     # This defaults to "Menu", but you can change it by overriding origin_region_name.
@@ -84,3 +84,8 @@ class EnterTheGungeonWorld(World):
         return self.options.as_dict(
             "hard_mode", "hammer", "extra_starting_chest", "confetti_explosiveness", "player_sprite"
         )
+
+    def generate_early(self) -> None:
+        # Any logic we want to run before item or location generation
+        # Such as changing quantity of things based on options.
+        items.TestProgressiveQuantity = 5

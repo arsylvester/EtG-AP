@@ -151,7 +151,7 @@ AllLocationIds = {
 # Each Location instance must correctly report the "game" it belongs to.
 # To make this simple, it is common practice to subclass the basic Location class and override the "game" field.
 class GungeonLocation(Location):
-    game = "EnterTheGungeon"
+    game = "Enter The Gungeon"
 
 
 # Let's make one more helper method before we begin actually creating locations.

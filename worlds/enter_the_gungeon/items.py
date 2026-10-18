@@ -1,4 +1,6 @@
 from __future__ import annotations
+from .Names import ItemNames
+from dataclasses import dataclass
 
 from typing import TYPE_CHECKING
 
@@ -7,17 +9,42 @@ from BaseClasses import Item, ItemClassification
 if TYPE_CHECKING:
     from .world import EnterTheGungeonWorld
 
-# Every item must have a unique integer ID associated with it.
-# We will have a lookup from item name to ID here that, in world.py, we will import and bind to the world class.
-# Even if an item doesn't exist on specific options, it must be present in this lookup.
-ITEM_NAME_TO_ID = {
-    "Key": 1,
-    "Sword": 2,
-    "Shield": 3,
-    "Hammer": 4,
-    "Health Upgrade": 5,
-    "Confetti Cannon": 6,
-    "Math Trap": 7,
+'''
+Need a table that includes all gungeon ammonomicon items with its display name, gungeon id, enum of base, unlockable, or exclude
+Then another table that is all of base items that will be in all runs, like npcs, progressives, etc. with name, id, classification, and quantity. 
+
+'''
+@dataclass
+class ItemDetails:
+    itemID: int
+    classification: ItemClassification
+    quantity: int
+    isBaseAmmonomicon: bool = False
+
+TestProgressiveQuantity = 3
+
+# All unlockable guns/items will use the same ID as Gungeon uses. Then all custom unlocks will start at 1000.
+ITEM_NAME_TO_DETAILS = {
+    # Shop unlocks
+    ItemNames.OxAndCadence: ItemDetails(1000, ItemClassification.progression | ItemClassification.useful, 7),
+    ItemNames.ProfessorGoop: ItemDetails(1001, ItemClassification.progression | ItemClassification.useful, 2),
+    ItemNames.Trorc: ItemDetails(1002, ItemClassification.progression | ItemClassification.useful, 2),
+    ItemNames.Doug: ItemDetails(1003, ItemClassification.progression | ItemClassification.useful, 6),
+    ItemNames.Tinker: ItemDetails(1004, ItemClassification.progression | ItemClassification.useful, 1),
+    # NPCs
+    ItemNames.Sorceress: ItemDetails(1005, ItemClassification.useful, 1),
+    ItemNames.Daisuke: ItemDetails(1006, ItemClassification.useful, 1),
+    ItemNames.Frifle: ItemDetails(1007, ItemClassification.useful, 1),
+    ItemNames.GunslingKing: ItemDetails(1008, ItemClassification.useful, 1),
+    ItemNames.Adventurer: ItemDetails(1009, ItemClassification.useful, 1),
+    ItemNames.Goblin: ItemDetails(1010, ItemClassification.useful, 1),
+    ItemNames.Tonic: ItemDetails(1011, ItemClassification.useful, 1),
+    ItemNames.Bowler: ItemDetails(1012, ItemClassification.useful, 1),
+    ItemNames.OldRed: ItemDetails(1013, ItemClassification.useful, 1),
+    ItemNames.Flynt: ItemDetails(1014, ItemClassification.useful, 1),
+    ItemNames.Cursula: ItemDetails(1015, ItemClassification.useful, 1),
+    ItemNames.Synergrace: ItemDetails(1016, ItemClassification.useful, 1),
+    ItemNames.Vampire: ItemDetails(1017, ItemClassification.useful, 1),
 }
 
 # Items should have a defined default classification.
@@ -36,16 +63,14 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
 # Each Item instance must correctly report the "game" it belongs to.
 # To make this simple, it is common practice to subclass the basic Item class and override the "game" field.
 class GungeonItem(Item):
-    game = "EnterTheGungeon"
+    game = "Enter The Gungeon"
 
 
 # Ontop of our regular itempool, our world must be able to create arbitrary amounts of filler as requested by core.
 # To do this, it must define a function called world.get_filler_item_name(), which we will define in world.py later.
 # For now, let's make a function that returns the name of a random filler item here in items.py.
 def get_random_filler_item_name(world: EnterTheGungeonWorld) -> str:
-    # APQuest has an option called "trap_chance".
-    # This is the percentage chance that each filler item is a Math Trap instead of a Confetti Cannon.
-    # For this purpose, we need to use a random generator.
+    # TODO: Set up special logic that most of the filler will be unique gungeon gun/item unlocks
 
     # IMPORTANT: Whenever you need to use a random generator, you must use world.random.
     # This ensures that generating with the same generator seed twice yields the same output.
@@ -67,20 +92,17 @@ def create_item_with_correct_classification(world: EnterTheGungeonWorld, name: s
     if name == "Health Upgrade" and world.options.hard_mode:
         classification = ItemClassification.progression
 
-    return GungeonItem(name, classification, ITEM_NAME_TO_ID[name], world.player)
+    return GungeonItem(name, classification, ITEM_NAME_TO_DETAILS[name], world.player)
 
 
 # With those two helper functions defined, let's now get to actually creating and submitting our itempool.
 def create_all_items(world: EnterTheGungeonWorld) -> None:
-    # This is the function in which we will create all the items that this world submits to the multiworld item pool.
-    # There must be exactly as many items as there are locations.
-    # In our case, there are either six or seven locations.
-    # We must make sure that when there are six locations, there are six items,
-    # and when there are seven locations, there are seven items.
-
-    # Creating items should generally be done via the world's create_item method.
-    # First, we create a list containing all the items that always exist.
-
+    """
+    Rough plan:
+    Generate all custom items into the itempool, these are all the things we will always want in all runs.
+    Add in anything that the options might dictate.
+    Any remaining slots (difference of itempool and locations) will be filled in with ammonomicon unlockable items, plus a small percent of traps/filler consumables if enabled.
+    """
     itempool: list[Item] = [
         world.create_item("Key"),
         world.create_item("Sword"),
