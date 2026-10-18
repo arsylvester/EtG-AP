@@ -4,6 +4,20 @@ from .items import TRAP_DICTIONARY
 
 from Options import Choice, OptionGroup, OptionSet, PerGameCommonOptions, Range, Toggle, DefaultOnToggle, DeathLink
 
+class EnableProgressiveStartChestOption(DefaultOnToggle):
+    """
+    A free chest spawns next to the player upon starting a run. The quality of the chest is upgraded via a progressive AP item.
+
+    The progressive starting chest has 6 progressive levels:
+    - 0: None
+    - 1: Brown chest
+    - 2: Blue chest
+    - 3: Green chest
+    - 4: Red chest
+    - 5: Black chest
+    """
+    display_name = "Progressive Starting Chest"
+
 class EnableHegemonyCreditScalingOption(DefaultOnToggle):
     """
     Enable a progressive scaling AP item which multiplies to the amount of Hegemony Credits dropped.
@@ -133,6 +147,7 @@ class IncludeFrifleQuestsInLogicOption(Toggle):
 
 @dataclass
 class GungeonOptions(PerGameCommonOptions):
+    progressive_start_chest: EnableProgressiveStartChestOption
     limit_starting_gungeoneer: LimitStartingGungeoneerOption
     death_link: DeathLink
     curse_reduction_mode: CurseReductionModeOption
