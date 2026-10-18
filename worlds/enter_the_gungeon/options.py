@@ -55,7 +55,7 @@ class TrapPercentageOption(Range):
     range_end = 100
     default = 5
 
-class LimitStartingGungeoneerOption(OptionSet):
+class LimitStartingGungeoneerOption(Choice):
     """
     Start the game with only 1 playable gungeoneer. All remaining gungeoneers will be unlocked as AP items.
 
