@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from BaseClasses import ItemClassification, Location
+from BaseClasses import ItemClassification, Location, LocationProgressType
 from .Names import LocationName
 from .Names import RegionName
 
@@ -10,20 +10,6 @@ from . import items
 
 if TYPE_CHECKING:
     from .world import EnterTheGungeonWorld
-
-# Every location must have a unique integer ID associated with it.
-# We will have a lookup from location name to ID here that, in world.py, we will import and bind to the world class.
-# Even if a location doesn't exist on specific options, it must be present in this lookup.
-#LOCATION_NAME_TO_ID = {
-#    "Top Left Room Chest": 1,
-#    "Top Middle Chest": 2,
-#    "Bottom Left Chest": 3,
-#    "Bottom Left Extra Chest": 4,
-#    "Bottom Right Room Left Chest": 5,
-#    "Bottom Right Room Right Chest": 6,
-#    # Location IDs don't need to be sequential, as long as they're unique and greater than 0.
-#    "Right Room Enemy Drop": 10,
-#}
 
 OxAndCadenceLocations1 = {
     LocationName.BLUEPRINTMETA_THOMPSON: 200001,
@@ -188,6 +174,7 @@ BreachLocations = {
 	LocationName.SHOP_HAS_MET_TRUCK: 45501,
     LocationName.WINCHESTER_MET_PREVIOUSLY: 25506,
     LocationName.SHERPA_ACTIVE_IN_ELEVATOR_ROOM: 30005,
+
 	LocationName.BLACKSMITH_ELEMENT1: 50105,
 	LocationName.BLACKSMITH_ELEMENT2: 50106,
 	LocationName.BLACKSMITH_ELEMENT3: 50107,
@@ -266,19 +253,18 @@ AllLocationIds = {
     **OtherLocations,
 }
 
+ExcludedPriorityLocations = [
+    LocationName.ACHIEVEMENT_CASTLE_MANYTIMES,
+	LocationName.ACHIEVEMENT_GUNGEON_MANYTIMES,
+	LocationName.ACHIEVEMENT_MINES_MANYTIMES,
+	LocationName.ACHIEVEMENT_HOLLOW_MANYTIMES,
+	LocationName.ACHIEVEMENT_FORGE_MANYTIMES,
+    LocationName.BOSSKILLED_DOORMIMIC,
+]
 
-# Each Location instance must correctly report the "game" it belongs to.
-# To make this simple, it is common practice to subclass the basic Location class and override the "game" field.
 class GungeonLocation(Location):
     game = "Enter The Gungeon"
 
-
-# Let's make one more helper method before we begin actually creating locations.
-# Later on in the code, we'll want specific subsections of LOCATION_NAME_TO_ID.
-# To reduce the chance of copy-paste errors writing something like {"Chest": LOCATION_NAME_TO_ID["Chest"]},
-# let's make a helper method that takes a list of location names and returns them as a dict with their IDs.
-# Note: There is a minor typing quirk here. Some functions want location addresses to be an "int | None",
-# so while our function here only ever returns dict[str, int], we annotate it as dict[str, int | None].
 def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | None]:
     return {location_name: AllLocationIds[location_name] for location_name in location_names}
 
@@ -289,12 +275,6 @@ def create_all_locations(world: EnterTheGungeonWorld) -> None:
 
 
 def create_regular_locations(world: EnterTheGungeonWorld) -> None:
-    # Finally, we need to put the Locations ("checks") into their regions.
-    # Once again, before we do anything, we can grab our regions we created by using world.get_region()
-    #overworld = world.get_region("Overworld")
-    #top_left_room = world.get_region("Top Left Room")
-    #bottom_right_room = world.get_region("Bottom Right Room")
-    #right_room = world.get_region("Right Room")
     world.get_region(RegionName.Breach).add_locations(BreachLocations, GungeonLocation)
     world.get_region(RegionName.OxAndCadence1).add_locations(OxAndCadenceLocations1, GungeonLocation)
     world.get_region(RegionName.OxAndCadence2).add_locations(OxAndCadenceLocations2, GungeonLocation)
@@ -335,48 +315,9 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
     pastKillable = world.get_region(RegionName.PastKillable)
     pastKillable.add_locations(get_location_names_with_ids([LocationName.BLACKSMITH_BULLET_COMPLETE]))
 
-    # One way to create locations is by just creating them directly via their constructor.
-    #bottom_left_chest = GungeonLocation(
-    #    world.player, "Bottom Left Chest", world.location_name_to_id["Bottom Left Chest"], overworld
-    #)
-
-    # You can then add them to the region.
-    #overworld.locations.append(bottom_left_chest)
-
-    # A simpler way to do this is by using the region.add_locations helper.
-    # For this, you need to have a dict of location names to their IDs (i.e. a subset of location_name_to_id)
-    # Aha! So that's why we made that "get_location_names_with_ids" helper method earlier.
-    # You also need to pass your overridden Location class.
-    #bottom_right_room_locations = get_location_names_with_ids(
-    #    ["Bottom Right Room Left Chest", "Bottom Right Room Right Chest"]
-    #)
-    #bottom_right_room.add_locations(bottom_right_room_locations, GungeonLocation)
-
-
-    #top_left_room_locations = get_location_names_with_ids(["Top Left Room Chest"])
-    #top_left_room.add_locations(top_left_room_locations, GungeonLocation)
-
-    #right_room_locations = get_location_names_with_ids(["Right Room Enemy Drop"])
-    #right_room.add_locations(right_room_locations, GungeonLocation)
-
-    # Locations may be in different regions depending on the player's options.
-    # In our case, the hammer option puts the Top Middle Chest into its own room called Top Middle Room.
-    #top_middle_room_locations = get_location_names_with_ids(["Top Middle Chest"])
-    #if world.options.hammer:
-    #    top_middle_room = world.get_region("Top Middle Room")
-    #    top_middle_room.add_locations(top_middle_room_locations, GungeonLocation)
-    #else:
-    #    overworld.add_locations(top_middle_room_locations, GungeonLocation)
-
-    # Locations may exist only if the player enables certain options.
-    # In our case, the extra_starting_chest option adds the Bottom Left Extra Chest location.
-    #if world.options.extra_starting_chest:
-        # Once again, it is important to stress that even though the Bottom Left Extra Chest location doesn't always
-        # exist, it must still always be present in the world's location_name_to_id.
-        # Whether the location actually exists in the seed is purely determined by whether we create and add it here.
-    #    bottom_left_extra_chest = get_location_names_with_ids(["Bottom Left Extra Chest"])
-    #    overworld.add_locations(bottom_left_extra_chest, GungeonLocation)
-
+    # Set Location Priority
+    for location in ExcludedPriorityLocations:
+        world.get_location(location).progress_type = LocationProgressType.EXCLUDED
 
 def create_events(world: EnterTheGungeonWorld) -> None:
     # Sometimes, the player may perform in-game actions that allow them to progress which are not related to Items.
