@@ -130,6 +130,12 @@ BLACKSMITH_ELEMENT4                 = "Deliver Obsidian Shell Casing"
 BLACKSMITH_BULLET_COMPLETE          = "Construct the Bullet That Can Kill The Past"
 #ACHIEVEMENT_CONSTRUCT_BULLET        = "Construct the Bullet That Can Kill The Past" #Duplicate flags. Could be usefull?
 
+COMPLETE_FLOOR_CASTLE               = "Beat Floor 1"
+COMPLETE_FLOOR_GUNGEON              = "Beat Floor 2"
+COMPLETE_FLOOR_MINES                = "Beat Floor 3"
+COMPLETE_FLOOR_HOLLOW               = "Beat Floor 4"
+COMPLETE_FLOOR_FORGE                = "Beat Floor 5"
+
 ACHIEVEMENT_NOBOSSDAMAGE_CASTLE     = "Master Round I"
 ACHIEVEMENT_NOBOSSDAMAGE_GUNGEON    = "Master Round II"
 ACHIEVEMENT_NOBOSSDAMAGE_MINES      = "Master Round III"
