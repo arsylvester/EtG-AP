@@ -1,7 +1,7 @@
 # Enter the Gungeon AP World
 
 
-> [!INFO] 
+> [!NOTE] 
 > This is mod that incorporates Enter the Gungeon into the Archipelago multi-game randomizer. You can read more about Archipelago from the [Archipelago repo](https://github.com/ArchipelagoMW/Archipelago).
 
 
@@ -55,6 +55,6 @@ You can host the game by [uploading](https://archipelago.gg/uploads) it to the A
 A walkthrough for connecting from the in-game client can be found in the [companion mod's repo](https://github.com/NoahSims/GungeonArchipelagoPlugin).
 
 
-> [!INFO]
+> [!NOTE]
 > The setup section formatting/wording is shamelessly borrowed from the exceptionally detailed [ULTRAKILL apworld](https://github.com/TRPG0/ArchipelagoULTRAKILL).
 
