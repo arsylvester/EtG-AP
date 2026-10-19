@@ -1,149 +1,60 @@
-# [Archipelago](https://archipelago.gg) ![Discord Shield](https://discordapp.com/api/guilds/731205301247803413/widget.png?style=shield) | [Install](https://github.com/ArchipelagoMW/Archipelago/releases)
+# Enter the Gungeon AP World
 
-Archipelago provides a generic framework for developing multiworld capability for game randomizers. In all cases,
-presently, Archipelago is also the randomizer itself.
 
-Currently, the following games are supported:
+> [!INFO] 
+> This is mod that incorporates Enter the Gungeon into the Archipelago multi-game randomizer. You can read more about Archipelago from the [Archipelago repo](https://github.com/ArchipelagoMW/Archipelago).
 
-* The Legend of Zelda: A Link to the Past
-* Factorio
-* Subnautica
-* Risk of Rain 2
-* The Legend of Zelda: Ocarina of Time
-* Timespinner
-* Super Metroid
-* Secret of Evermore
-* Final Fantasy
-* VVVVVV
-* Raft
-* Super Mario 64
-* Meritous
-* Super Metroid/Link to the Past combo randomizer (SMZ3)
-* ChecksFinder
-* Hollow Knight
-* The Witness
-* Sonic Adventure 2: Battle
-* Starcraft 2
-* Dark Souls 3
-* Super Mario World
-* Pokémon Red and Blue
-* Hylics 2
-* Overcooked! 2
-* Zillion
-* Lufia II Ancient Cave
-* Blasphemous
-* Wargroove
-* Stardew Valley
-* The Legend of Zelda
-* The Messenger
-* Kingdom Hearts 2
-* The Legend of Zelda: Link's Awakening DX
-* Adventure
-* DLC Quest
-* Noita
-* Undertale
-* Bumper Stickers
-* Mega Man Battle Network 3: Blue Version
-* Muse Dash
-* DOOM 1993
-* Terraria
-* Lingo
-* Pokémon Emerald
-* DOOM II
-* Shivers
-* Heretic
-* Landstalker: The Treasures of King Nole
-* Final Fantasy Mystic Quest
-* TUNIC
-* Kirby's Dream Land 3
-* Celeste 64
-* Castlevania 64
-* A Short Hike
-* Yoshi's Island
-* Mario & Luigi: Superstar Saga
-* Bomb Rush Cyberfunk
-* Aquaria
-* Yu-Gi-Oh! Ultimate Masters: World Championship Tournament 2006
-* A Hat in Time
-* Old School Runescape
-* Kingdom Hearts 1
-* Mega Man 2
-* Yacht Dice
-* Faxanadu
-* Saving Princess
-* Castlevania: Circle of the Moon
-* Inscryption
-* Civilization VI
-* The Legend of Zelda: The Wind Waker
-* Jak and Daxter: The Precursor Legacy
-* Super Mario Land 2: 6 Golden Coins
-* shapez
-* Paint
-* Celeste (Open World)
-* Choo-Choo Charles
-* APQuest
-* Satisfactory
-* EarthBound
-* Mega Man 3
-* Gauntlet Legends
 
-For setup and instructions check out our [tutorials page](https://archipelago.gg/tutorial/).
-Downloads can be found at [Releases](https://github.com/ArchipelagoMW/Archipelago/releases), including compiled
-windows binaries.
+## What is this?
+This AP World is needed for seed and template generation. 
 
-## History
+To play the EtG Archipelago, your copy of *Enter the Gungeon* will require the [companion mod](https://github.com/NoahSims/GungeonArchipelagoPlugin).
 
-Archipelago is built upon a strong legacy of brilliant hobbyists. We want to honor that legacy by showing it here.
-The repositories which Archipelago is built upon, inspired by, or otherwise owes its gratitude to are:
+## Gameplay of EtG Archipelago
 
-* [bonta0's MultiWorld](https://github.com/Bonta0/ALttPEntranceRandomizer/tree/multiworld_31)
-* [AmazingAmpharos' Entrance Randomizer](https://github.com/AmazingAmpharos/ALttPEntranceRandomizer)
-* [VT Web Randomizer](https://github.com/sporchia/alttp_vt_randomizer)
-* [Dessyreqt's alttprandomizer](https://github.com/Dessyreqt/alttprandomizer)
-* [Zarby89's](https://github.com/Ijwu/Enemizer/commits?author=Zarby89)
-  and [sosuke3's](https://github.com/Ijwu/Enemizer/commits?author=sosuke3) contributions to Enemizer, which make up the
-  vast majority of Enemizer contributions.
+### What does randomization do in this game?
+- ~~Any action~~ *Most actions* that would normally unlock an entry in the [Ammonomicon](https://enterthegungeon.wiki.gg/wiki/Ammonomicon) will instead send a multiworld item.
+- Important in-game progression will now need to be unlocked by multiworld items. These include:
+	- Playable characters
+	- The 4 parts of the *Bullet That Can Kill The Past*
+	- Access to NPC shops
+	- Ability to access secret floors
+	- Access to in-game guns/items (Ammonomicon entries)
 
-We recognize that there is a strong community of incredibly smart people that have come before us and helped pave the
-path. Just because one person's name may be in a repository title does not mean that only one person made that project
-happen. We can't hope to perfectly cover every single contribution that lead up to Archipelago, but we hope to honor
-them fairly.
 
-### Path to the Archipelago
+### What is the goal of EtG in Archipelago?
+The current goal condition is to *kill the past* of any playable gungeoneer. 
 
-Archipelago was directly forked from bonta0's `multiworld_31` branch of ALttPEntranceRandomizer (this project has a
-long legacy of its own, please check it out linked above) on January 12, 2020. The repository was then named to
-_MultiWorld-Utilities_ to better encompass its intended function. As Archipelago matured, then known as
-"Berserker's MultiWorld" by some, we found it necessary to transform our repository into a root level repository
-(as opposed to a 'forked repo') and change the name (which came later) to better reflect our project.
+In the future we plan to support alternate goal conditions such as:
+- Kill the Lich
+- Kill the Gunslinger's past
+- Kill every boss
 
-## Running Archipelago
 
-For most people, all you need to do is head over to
-the [releases page](https://github.com/ArchipelagoMW/Archipelago/releases), then download and run the appropriate
-installer, or AppImage for Linux-based systems.
+# Setup
 
-If you are a developer or are running on a platform with no compiled releases available, please see our doc on
-[running Archipelago from source](docs/running%20from%20source.md).
+### Creating a `.yaml` file
+To play an Archipelago game, you will need a `.yaml` file for the game you would like to play.
 
-## Related Repositories
+1. Download and install [Archipelago](https://github.com/ArchipelagoMW/Archipelago/releases).
+2. Download `enter_the_gungeon.apworld` from the mod's releases page and install it, either by double clicking the `.apworld` file, opening the Archipelago Launcher and selecting "Install APWorld", or by selecting "Browse Files" and adding it to the `custom_worlds` folder.
+3. To create a `.yaml` file, open the Archipelago Launcher and search for "Options Creator". You can then customize all of the options for Enter the Gungeon, and then save the `.yaml` file.
+    - Alternatively, if you would prefer to manually edit the `.yaml` file in a text editor, you can click "Generate Template Options" in the Archipelago Launcher instead.
 
-This project makes use of multiple other projects. We wouldn't be here without these other repositories and the
-contributions of their developers, past and present.
+### Generating a multiworld
+When you have collected all `.yaml` files for each player in the multiworld, move them all into the `Players` folder. You can easily find the Players folder by opening the Archipelago Launcher and clicking "Browse Files".
 
-* [z3randomizer](https://github.com/ArchipelagoMW/z3randomizer)
-* [Enemizer](https://github.com/Ijwu/Enemizer)
-* [Ocarina of Time Randomizer](https://github.com/TestRunnerSRL/OoT-Randomizer)
+Note that only one player in the multiworld will need to generate. If the player who is hosting is not yourself, they will also need to install the apworld for Enter the Gungeon.
 
-## Contributing
+Once all `.yaml` files are ready, click "Generate" in the launcher. A command prompt window will open, and if successful it will close itself. Your generated multiworld will appear in the `output` folder.
 
-To contribute to Archipelago, including the WebHost, core program, or by adding a new game, see our
-[Contributing guidelines](/docs/contributing.md).
+You can host the game by [uploading](https://archipelago.gg/uploads) it to the Archipelago website and clicking Create New Room. The address you will need to connect to the server will be displayed at the top of the room page.
+- You can also host the game yourself by clicking "Host" in the launcher. You will need to know how to port forward if you want other players to be able to connect to a manually hosted server.
 
-## FAQ
+### Connecting to a server
+A walkthrough for connecting from the in-game client can be found in the [companion mod's repo](https://github.com/NoahSims/GungeonArchipelagoPlugin).
 
-For Frequently asked questions, please see the website's [FAQ Page](https://archipelago.gg/faq/en/).
 
-## Code of Conduct
+> [!INFO]
+> The setup section formatting/wording is shamelessly borrowed from the exceptionally detailed [ULTRAKILL apworld](https://github.com/TRPG0/ArchipelagoULTRAKILL).
 
-Please refer to our [code of conduct](/docs/code_of_conduct.md).
