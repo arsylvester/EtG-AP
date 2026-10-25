@@ -137,90 +137,87 @@ polaris = "Polaris"
 patriot = "Patriot"
 rusty_sidearm = "Rusty Sidearm"
 unicorn_horn = "Unicorn Horn"
-# scope
-# ration
-# fortunes_favor
-# jetpack
-# raiden_coil
-# bomb
-# ice_bomb
-# magic_sweet
-# heavy_bullets
-# cartographers_ring
-# rocket_powered_bullets
-# bionic_leg
-# ballot
-# ammo_synthesizer
-# eyepatch
-# metronome
-# disintegrator
-# blunderbuss
-# pulse_cannon
-# cactus
-# flame_hand
-# shotbow
-# junk
-# rube_adyne_mk2
-# com4nd0
-# glacier
-# utility_belt
-# ring_of_miserly_protection
-# backpack
-# ammo_belt
-# cog_of_battle
-# c4
-# map
-# honeycomb
-# master_of_unlocking
-# rube_adyne_prototype
-# shotgun_full_of_hate
-# witch_pistol
-# dragunfire
-# lies
-# face_melter
-# t_shirt_cannon
-# the_membrane
-# the_kiln
-# shock_rifle
-# trashcannon
-# singularity
-# laser_lotus
-# big_iron
-# amulet_of_the_pit_lord
-# gundromeda_strain
-# gunknight_helmet
-# gunknight_greaves
-# gunknight_gauntlet
-# gunknight_armor
-# heart_synthesizer
-# oiled_cylinder
-# shelleton_key
-# bloody_eye
-# double_vision
-# black_hole_gun
-# ice_cube
-# ghost_bullets
-# pile_of_souls
-# potion_of_gun_friendship
-# tangler
-# gungeon_ant
-# alien_engine
-# crestfaller
-# proton_backpack
-# grasschopper
-# winchester_rifle
-# grey_mauser
-# the_judge
-# machine_fist
-# disarming_personality
-# rolling_eye
-# ring_of_fire_resistance
-# bug_boots
-# fossilized_gun
-# pea_shooter
-# gunslingers_ashes
-# luxin_cannon
-# charmed_bow
+scope = "Scope"
+ration = "Ration"
+fortunes_favor = "Fortune's Favor"
+jetpack = "Jetpack"
+raiden_coil = "Raiden Coil"
+bomb = "Bomb"
+ice_bomb = "Ice Bomb"
+magic_sweet = "Magic Sweet"
+heavy_bullets = "Heavy Bullets"
+cartographers_ring = "Cartographers Ring"
+rocket_powered_bullets = "Rocket-Powered Bullets"
+bionic_leg = "Bionic Leg"
+ballot = "Ballot"
+ammo_synthesizer = "Ammo Synthesizer"
+eyepatch = "Eyepatch"
+metronome = "Metronome"
+disintegrator = "Disintegrator"
+blunderbuss = "Blunderbuss"
+pulse_cannon = "Pulse Cannon"
+cactus = "Cactus"
+flame_hand = "Flame Hand"
+shotbow = "Shotbow"
+junk = "Junk"
+rube_adyne_mk2 = "RUBE-ADYNE MK.II"
+com4nd0 = "Com4nd0"
+glacier = "Glacier"
+utility_belt = "Utility Belt"
+ring_of_miserly_protection = "Ring of Miserly Protection"
+backpack = "Backpack"
+ammo_belt = "Ammo Belt"
+cog_of_battle = "Cog of Battle"
+c4 = "C4"
+honeycomb = "Honeycomb"
+master_of_unlocking = "Master of Unlocking"
+rube_adyne_prototype = "RUBE-ADYNE Prototype"
+shotgun_full_of_hate = "Shotgun Full of Hate"
+witch_pistol = "Witch Pistol"
+dragunfire = "Dragunfire"
+face_melter = "Face Melter"
+t_shirt_cannon = "T-Shirt Cannon"
+the_membrane = "The Membrane"
+the_kiln = "The Kiln"
+shock_rifle = "Shock Rifle"
+trashcannon = "Trashcannon"
+singularity = "Singularity"
+laser_lotus = "Laser Lotus"
+big_iron = "Big Iron"
+amulet_of_the_pit_lord = "Amulet of the Pit Lord"
+gundromeda_strain = "Gundromeda Strain"
+gunknight_helmet = "Gunknight Helmet"
+gunknight_greaves = "Gunknight Greaves"
+gunknight_gauntlet = "Gunknight Gauntlet"
+gunknight_armor = "Gunknight Armor"
+heart_synthesizer = "Heart Synthesizer"
+oiled_cylinder = "Oiled Cylinder"
+shelleton_key = "Shelleton Key"
+bloody_eye = "Bloody Eye"
+double_vision = "Double Vision"
+black_hole_gun = "Black Hole Gun"
+ice_cube = "Ice Cube"
+ghost_bullets = "Ghost Bullets"
+potion_of_gun_friendship = "Potion of Gun Friendship"
+tangler = "Tangler"
+gungeon_ant = "Gungeon Ant"
+alien_engine = "Alien Engine"
+crestfaller = "Crestfaller"
+proton_backpack = "Proton Backpack"
+grasschopper = "Grasschopper"
+winchester_rifle = "Winchester Rifle"
+grey_mauser = "Grey Mauser"
+the_judge = "The Judge"
+machine_fist = "Machine Fist"
+disarming_personality = "Disarming Personality"
+rolling_eye = "Rolling Eye"
+ring_of_fire_resistance = "Ring of Fire Resistance"
+bug_boots = "Bug Boots"
+fossilized_gun = "Fossilized Gun"
+pea_shooter = "Pea Shooter"
+gunslingers_ashes = "Gunslinger's Ashes"
+luxin_cannon = "Luxin Cannon"
+charmed_bow = "Charmed Bow"
 # portable_turret
 # sawed_off
 # cigarettes
