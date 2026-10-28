@@ -81,14 +81,12 @@ class EnterTheGungeonWorld(World):
     def get_filler_item_name(self) -> str:
         return items.get_random_filler_item_name(self)
 
-    # There may be data that the game client will need to modify the behavior of the game.
-    # This is what slot_data exists for. Upon every client connection, the slot's slot_data is sent to the client.
-    # slot_data is just a dictionary using basic types, that will be converted to json when sent to the client.
-    # def fill_slot_data(self) -> Mapping[str, Any]:
-    #     # If you need access to the player's chosen options on the client side, there is a helper for that.
-    #     return self.options.as_dict(
-    #         "hard_mode", "hammer", "extra_starting_chest", "confetti_explosiveness", "player_sprite"
-    #     )
+    """Defines Session.DataStorage.GetSlotData() dict"""
+
+    def fill_slot_data(self):
+        return {
+            "DeathLink": self.options.death_link.value,
+        }
 
     #def generate_early(self) -> None:
         # Any logic we want to run before item or location generation
