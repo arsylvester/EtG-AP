@@ -86,6 +86,9 @@ def set_all_entrance_rules(world: EnterTheGungeonWorld) -> None:
     # resourceful rat fight
     world.set_rule(rat_fight_access, Has(ItemNames.InfuriatingNote))
 
+    #Payday Items
+    world.set_rule(payday_items_access, Has(ItemNames.Payday))
+
 # def set_all_location_rules(world: EnterTheGungeonWorld) -> None:
     # TODO: Figure this out...
 
