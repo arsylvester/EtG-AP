@@ -22,7 +22,7 @@ OxAndCadenceLocations1 = {
 OxAndCadenceLocations2 = {
     LocationName.BLUEPRINTMETA_HEARTLOCKET: 200007,
     LocationName.BLUEPRINTMETA_FIREBULLETS: 200008,
-    LocationName.BLUEPRINTMETA_FREEZERAY: 200009,
+    LocationName.BLUEPRINTMETA_FLASHRAYGUN: 200024,
     LocationName.BLUEPRINTMETA_HEARTLUNCHBOX: 200010,
     LocationName.BLUEPRINTMETA_BOX: 200011,
     LocationName.BLUEPRINTMETA_MAILBOX: 200012,
@@ -31,7 +31,7 @@ OxAndCadenceLocations3 = {
     LocationName.BLUEPRINTMETA_FATBULLETS: 200013,
     LocationName.BLUEPRINTMETA_BETTERBULLETS: 200014,
     LocationName.BLUEPRINTMETA_ANGRYBULLETS: 200015,
-    LocationName.BLUEPRINTMETA_SIREN: 200016,
+    LocationName.BLUEPRINTMETA_RAIDENCOIL: 200037,
     LocationName.BLUEPRINTMETA_HEARTPURSE: 200017,
     LocationName.BLUEPRINTMETA_ORIGUNI: 200018,
 }
@@ -41,7 +41,7 @@ OxAndCadenceLocations4 = {
     LocationName.BLUEPRINTMETA_SPICE: 200021,
     LocationName.BLUEPRINTMETA_GRASSCHOPPER: 200022,
     LocationName.BLUEPRINTMETA_SUNGLASSES: 200023,
-    LocationName.BLUEPRINTMETA_FLASHRAYGUN: 200024,
+    LocationName.BLUEPRINTMETA_FREEZERAY: 200009,
 }
 OxAndCadenceLocations5 = {
     LocationName.BLUEPRINTMETA_SINGULARITY: 200025,
@@ -60,28 +60,25 @@ OxAndCadenceLocations6 = {
     LocationName.BLUEPRINTMETA_CEREBRALBORE: 200036,
 }
 OxAndCadenceLocations7 = {
-    LocationName.BLUEPRINTMETA_RAIDENCOIL: 200037,
     LocationName.BLUEPRINTMETA_BLACKHOLEGUN: 200038,
     LocationName.BLUEPRINTMETA_SPACEFRIEND: 200039,
     LocationName.BLUEPRINTMETA_YARI: 200040,
     LocationName.BLUEPRINTMETA_RAILGUN: 200041,
     LocationName.BLUEPRINTMETA_BROCCOLI: 200042,
-}
-OxAndCadenceLocations8 = {
     #LocationName.BLUEPRINTMETA_MTXGUN: 200043,
     LocationName.BLUEPRINTMETA_PLATINUMBULLETS: 200100,
 }
 
 GooptonLocations1 = {
-    LocationName.BLUEPRINTGOOP_BUGBOOTS: 220001,
-    LocationName.BLUEPRINTGOOP_FOSSILIZEDGUN: 220002,
-    LocationName.BLUEPRINTGOOP_MONSTERBLOOD: 220003,
     LocationName.BLUEPRINTGOOP_PLAGUEPISTOL: 220004,
-    LocationName.BLUEPRINTGOOP_MEMBRANE: 220005,
+    LocationName.BLUEPRINTGOOP_MONSTERBLOOD: 220003,
+    LocationName.BLUEPRINTGOOP_BUGBOOTS: 220001,
+    LocationName.BLUEPRINTGOOP_SPONGE: 220007,
     LocationName.BLUEPRINTGOOP_PLUNGER: 220006,
+    LocationName.BLUEPRINTGOOP_MEMBRANE: 220005,
 }
 GooptonLocations2 = {
-    LocationName.BLUEPRINTGOOP_SPONGE: 220007,
+    LocationName.BLUEPRINTGOOP_FOSSILIZEDGUN: 220002,
     LocationName.BLUEPRINTGOOP_TENTACLEARM: 220008,
     LocationName.BLUEPRINTGOOP_NAPALMSTRIKE: 220009,
     LocationName.BLUEPRINTGOOP_GUNDROMEDASTRAIN: 220010,
@@ -98,61 +95,61 @@ TrorcLocations1 = {
 }
 TrorcLocations2 = {
     LocationName.BLUEPRINTTRUCK_NIKITA: 230007,
-    LocationName.BLUEPRINTTRUCK_BIGBOY: 230008,
-    LocationName.BLUEPRINTTRUCK_CHAFFGRENADE: 230009,
     LocationName.BLUEPRINTTRUCK_PATRIOT: 230010,
+    LocationName.BLUEPRINTTRUCK_CHAFFGRENADE: 230009,
+    LocationName.BLUEPRINTTRUCK_BIGBOY: 230008,
     LocationName.BLUEPRINTTRUCK_MAGAZINERACK: 230011,
 }
 
 DougLocations1 = {
     LocationName.BLUEPRINTBEETLE_DEVOLVER: 240001,
+    LocationName.BLUEPRINTBEETLE_SILVALLIES: 240015,
+    LocationName.BLUEPRINTBEETLE_METROIDBOMBS: 240014,
+    LocationName.BLUEPRINTBEETLE_STOUTIES: 240010,
     LocationName.BLUEPRINTBEETLE_BASEBALLBAT: 240002,
-    LocationName.BLUEPRINTBEETLE_DAWNHAMMER: 240003,
-    LocationName.BLUEPRINTBEETLE_STRAFEGUN: 240004,
-    LocationName.BLUEPRINTBEETLE_HYPERLIGHT: 240005,
-    LocationName.BLUEPRINTBEETLE_STARPEW: 240006,
+    LocationName.BLUEPRINTBEETLE_CHARMERS: 240011,
 }
 DougLocations2 = {
+    LocationName.BLUEPRINTBEETLE_HELIX: 240016,
+    LocationName.BLUEPRINTBEETLE_STARPEW: 240006,
     LocationName.BLUEPRINTBEETLE_DUELINGLASER: 240007,
     LocationName.BLUEPRINTBEETLE_TELEPORTERPROTOTYPE: 240008,
     LocationName.BLUEPRINTBEETLE_VORPALGUN: 240009,
-    LocationName.BLUEPRINTBEETLE_STOUTIES: 240010,
-    LocationName.BLUEPRINTBEETLE_CHARMERS: 240011,
     LocationName.BLUEPRINTBEETLE_FLAKTUALLY: 240012,
 }
 DougLocations3 = {
     LocationName.BLUEPRINTBEETLE_MAGICITES: 240013,
-    LocationName.BLUEPRINTBEETLE_METROIDBOMBS: 240014,
-    LocationName.BLUEPRINTBEETLE_SILVALLIES: 240015,
-    LocationName.BLUEPRINTBEETLE_HELIX: 240016,
-    LocationName.BLUEPRINTBEETLE_GOLDIES: 240017,
+    LocationName.BLUEPRINTBEETLE_HYPERLIGHT: 240005,
+    LocationName.BLUEPRINTBEETLE_DAWNHAMMER: 240003,
+    LocationName.BLUEPRINTBEETLE_STRAFEGUN: 240004,
     LocationName.BLUEPRINTBEETLE_BEEBULLETS: 240101,
+    LocationName.BLUEPRINTBEETLE_CRITICALBULLETS: 240103,
 }
 DougLocations4 = {
     LocationName.BLUEPRINTBEETLE_DEVOLVERBULLETS: 240102,
-    LocationName.BLUEPRINTBEETLE_CRITICALBULLETS: 240103,
     LocationName.BLUEPRINTBEETLE_SNOWBALLETS: 240104,
+    LocationName.BLUEPRINTBEETLE_BIGSHOTGUN: 240108,
     LocationName.BLUEPRINTBEETLE_BIGGIANTHEAD: 240105,
     LocationName.BLUEPRINTBEETLE_COMBINERIFLE: 240106,
     LocationName.BLUEPRINTBEETLE_EXOTICGUN: 240107,
 }
 DougLocations5 = {
-    LocationName.BLUEPRINTBEETLE_BIGSHOTGUN: 240108,
-    LocationName.BLUEPRINTBEETLE_GUNDERFURY: 240201,
-    LocationName.BLUEPRINTBEETLE_GLAIVE: 240202,
-    LocationName.BLUEPRINTBEETLE_LUTE: 240203,
-    LocationName.BLUEPRINTBEETLE_TETRIS: 240204,
-    LocationName.BLUEPRINTBEETLE_TRIGUN: 240205,
-}
-DougLocations6 = {
-    LocationName.BLUEPRINTBEETLE_SHOVEL: 240206,
-    LocationName.BLUEPRINTBEETLE_PREDATOR: 240207,
-    LocationName.BLUEPRINTBEETLE_VOIDCORELAUNCHER: 240208,
-    LocationName.BLUEPRINTBEETLE_BLANKBULLETS: 240209,
-    LocationName.BLUEPRINTBEETLE_ORBITALBULLETS: 240210,
     LocationName.BLUEPRINTBEETLE_SCOUTER: 240211,
+    LocationName.BLUEPRINTBEETLE_ORBITALBULLETS: 240210,
+    LocationName.BLUEPRINTBEETLE_BLANKBULLETS: 240209,
     LocationName.BLUEPRINTBEETLE_CONTROLLER: 240212,
     LocationName.BLUEPRINTBEETLE_GUNNER: 240213,
+    LocationName.BLUEPRINTBEETLE_TETRIS: 240204,
+}
+DougLocations6 = {
+    LocationName.BLUEPRINTBEETLE_TRIGUN: 240205,
+    LocationName.BLUEPRINTBEETLE_VOIDCORELAUNCHER: 240208,
+    LocationName.BLUEPRINTBEETLE_LUTE: 240203,
+    LocationName.BLUEPRINTBEETLE_GLAIVE: 240202,
+    LocationName.BLUEPRINTBEETLE_PREDATOR: 240207,
+    LocationName.BLUEPRINTBEETLE_SHOVEL: 240206,
+    LocationName.BLUEPRINTBEETLE_GUNDERFURY: 240201,
+    LocationName.BLUEPRINTBEETLE_GOLDIES: 240017,
 }
 
 BreachLocations = {
@@ -221,6 +218,15 @@ BreachLocations = {
 	LocationName.ACHIEVEMENT_SURPRISE_MIMIC: 300022,
 	LocationName.ACHIEVEMENT_KILL_JAMMED_BOSS: 300024,
 	LocationName.ACHIEVEMENT_BIGGEST_WALLET: 300025,
+    LocationName.TUTORIAL_COMPLETED: 2001,
+    LocationName.TUTORIAL_UNLOCK_HELMET: 2050,
+    LocationName.TUTORIAL_UNLOCK_SHIELD: 2051,
+}
+
+PaydayLocations = {
+    LocationName.ITEMSPECIFIC_STOLE_BANKBAG: 170001,
+    LocationName.ITEMSPECIFIC_STOLE_BANKMASK: 170002,
+    LocationName.ITEMSPECIFIC_STOLE_DRILL: 170003,
 }
 
 OtherLocations = {
@@ -245,7 +251,6 @@ AllLocationIds = {
     **OxAndCadenceLocations5,
     **OxAndCadenceLocations6,
     **OxAndCadenceLocations7,
-    **OxAndCadenceLocations8,
     **GooptonLocations1,
     **GooptonLocations2,
     **TrorcLocations1,
@@ -257,6 +262,7 @@ AllLocationIds = {
     **DougLocations5,
     **DougLocations6,
 	**BreachLocations,
+    **PaydayLocations,
     **OtherLocations,
 }
 
@@ -290,7 +296,6 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
     world.get_region(RegionName.OxAndCadence5).add_locations(OxAndCadenceLocations5, GungeonLocation)
     world.get_region(RegionName.OxAndCadence6).add_locations(OxAndCadenceLocations6, GungeonLocation)
     world.get_region(RegionName.OxAndCadence7).add_locations(OxAndCadenceLocations7, GungeonLocation)
-    world.get_region(RegionName.OxAndCadence8).add_locations(OxAndCadenceLocations8, GungeonLocation)
 
     world.get_region(RegionName.Doug1).add_locations(DougLocations1, GungeonLocation)
     world.get_region(RegionName.Doug2).add_locations(DougLocations2, GungeonLocation)
@@ -304,6 +309,8 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
 
     world.get_region(RegionName.Trorc1).add_locations(TrorcLocations1, GungeonLocation)
     world.get_region(RegionName.Trorc2).add_locations(TrorcLocations2, GungeonLocation)
+
+    world.get_region(RegionName.Payday).add_locations(PaydayLocations, GungeonLocation)
 
     oubliette = world.get_region(RegionName.Oubliette)
     oubliette.add_locations(get_location_names_with_ids(
