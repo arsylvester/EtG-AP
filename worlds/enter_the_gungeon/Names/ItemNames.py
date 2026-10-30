@@ -218,35 +218,35 @@ pea_shooter = "Pea Shooter"
 gunslingers_ashes = "Gunslinger's Ashes"
 luxin_cannon = "Luxin Cannon"
 charmed_bow = "Charmed Bow"
-# portable_turret
-# sawed_off
-# cigarettes
-# irradiated_lead
-# poison_vial
-# charm_horn
-# plague_pistol
-# plunger
-# sense_of_direction
-# gunbow
-# ballistic_boots
-# lichy_trigger_finger
-# coin_crown
-# box
-# old_knights_shield
-# old_knights_helm
-# cold_45
-# ice_breaker
-# particulator
-# hegemony_carbine
-# helix
-# gilded_hydra
-# space_friend
-# ibomb_companion_app
-# aged_bell
-# duct_tape
-# crutch
-# scattershot
-# napalm_strike
+portable_turret = "Portable Turret"
+sawed_off = "Sawed Off"
+cigarettes = "Cigarettes"
+irradiated_lead = "Irradiated Lead"
+poison_vial = "Poison Vial"
+charm_horn = "Charm Horn"
+plague_pistol = "Plague Pistol"
+plunger = "Plunger"
+sense_of_direction = "Sense of Direction"
+gunbow = "Gunbow"
+ballistic_boots = "Ballistic Boots"
+lichy_trigger_finger = "Litchy Trigger Finger"
+coin_crown = "Coin Crown"
+box = "Box"
+old_knights_shield = "Old Knights Shield"
+old_knights_helm = "Old Knights Helm"
+cold_45 = "Cold 45"
+ice_breaker = "Ice Breaker"
+particulator = "Particulator"
+hegemony_carbine = "Hegemony Carbine"
+helix = "Helix"
+gilded_hydra = "Gilded Hydra"
+space_friend = "Space Friend"
+ibomb_companion_app = "IBomb Companion App"
+aged_bell = "Aged Bell"
+duct_tape = "Duct Tape"
+crutch = "Crutch"
+scattershot = "Scattershot"
+napalm_strike = "Napalm Strike"
 # infuriating_note_1
 # infuriating_note_2
 # infuriating_note_3
