@@ -260,6 +260,7 @@ OtherLocations = {
 	LocationName.ACHIEVEMENT_ACCESS_ABBEY: 300021,
     LocationName.ACHIEVEMENT_ACCESS_RATGEON: 400300,
 	LocationName.ACHIEVEMENT_ACCESS_RNG_DEP: 400301,
+    LocationName.OPEN_TRUTH_CHEST: 400302,
 }
 
 AllLocationIds = {
@@ -337,7 +338,8 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
 
     abbey = world.get_region(RegionName.Abbey)
     abbey.add_locations(get_location_names_with_ids(
-        [LocationName.ACHIEVEMENT_ACCESS_ABBEY, LocationName.BOSSKILLED_OLDKING]))
+        [LocationName.ACHIEVEMENT_ACCESS_ABBEY, LocationName.OPEN_TRUTH_CHEST, 
+         LocationName.BOSSKILLED_OLDKING]))
 
     ratLair = world.get_region(RegionName.RatLair)
     ratLair.add_locations(get_location_names_with_ids([LocationName.ACHIEVEMENT_ACCESS_RATGEON]))

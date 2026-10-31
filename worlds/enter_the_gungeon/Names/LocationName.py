@@ -206,3 +206,5 @@ TUTORIAL_UNLOCK_SHIELD              = "Find Old Knight's Shield"
 ITEMSPECIFIC_STOLE_BANKBAG          = "Steal the Loot Bag"
 ITEMSPECIFIC_STOLE_BANKMASK         = "Steal the Clown Mask"
 ITEMSPECIFIC_STOLE_DRILL            = "Steal the Drill"
+
+OPEN_TRUTH_CHEST                    = "Open Brother Albern's Chest"
