@@ -241,6 +241,8 @@ OtherLocations = {
     LocationName.ACHIEVEMENT_BREACH_POPULATED: 300014, #TODO add to a region
     LocationName.ACHIEVEMENT_ACCESS_OUBLIETTE: 300020,
 	LocationName.ACHIEVEMENT_ACCESS_ABBEY: 300021,
+    LocationName.ACHIEVEMENT_ACCESS_RATGEON: 400300,
+	LocationName.ACHIEVEMENT_ACCESS_RNG_DEP: 400301,
 }
 
 AllLocationIds = {
@@ -320,11 +322,15 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
     abbey.add_locations(get_location_names_with_ids(
         [LocationName.ACHIEVEMENT_ACCESS_ABBEY, LocationName.BOSSKILLED_OLDKING]))
 
+    ratLair = world.get_region(RegionName.RatLair)
+    ratLair.add_locations(get_location_names_with_ids([LocationName.ACHIEVEMENT_ACCESS_RATGEON]))
+
     ratFight = world.get_region(RegionName.RatFight)
     ratFight.add_locations(get_location_names_with_ids([LocationName.BOSSKILLED_RESOURCEFULRAT]))
 
     rngDep = world.get_region(RegionName.RngDepartment)
-    rngDep.add_locations(get_location_names_with_ids([LocationName.BOSSKILLED_HELICOPTER]))
+    rngDep.add_locations(get_location_names_with_ids(
+        [LocationName.ACHIEVEMENT_ACCESS_RNG_DEP, LocationName.BOSSKILLED_HELICOPTER]))
 
     pastKillable = world.get_region(RegionName.PastKillable)
     pastKillable.add_locations(get_location_names_with_ids([LocationName.BLACKSMITH_BULLET_COMPLETE]))
