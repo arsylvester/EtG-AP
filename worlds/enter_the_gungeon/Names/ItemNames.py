@@ -253,336 +253,315 @@ napalm_strike = "Napalm Strike"
 # infuriating_note_4
 # infuriating_note_5
 # infuriating_note_6
-# owl
-# grappling_hook
-# air_strike
-# gungeon_pepper
-# ring_of_chest_friendship
-# ancient_heros_bandana
-# heavy_boots
-# broccoli
-# antibody
-# pink_guon_stone
-# white_guon_stone
-# orange_guon_stone
-# clear_guon_stone
-# old_knights_flask
-# red_guon_stone
-# blue_guon_stone
-# riddle_of_lead
-# iron_coin
-# laser_sight
-# dark_marker
-# flare_gun
-# spice
-# fat_bullets
-# frost_bullets
-# super_hot_watch
-# drum_clip
-# gungeon_blueprint
-# homing_bullets
-# blood_brooch
-# "+1_bullets"
-# backup_gun
-# bouncy_bullets
-# seven_leaf_clover
-# sunglasses
-# meatbun
-# molotov_launcher
-# mimic_tooth_necklace
-# ring_of_mimic_friendship
-# hot_lead
-# hegemony_credit
-# shock_rounds
-# dog
-# super_space_turtle
-# bullet_that_can_kill_the_past
-# explosive_rounds
-# old_crest
-# escape_rope
-# wax_wings
-# cluster_mine
-# cloranthy_ring
-# fairy_wings
-# clone
-# blast_helmet
-# monster_blood
-# nanomachines
-# gunboots
-# gnawed_key
-# r2g2
-# ticket
-# gold_ammolet
-# lodestone_ammolet
-# angry_bullets
-# chaos_ammolet
-# number_2
-# corsair
-# charge_shot
-# zilla_shotgun
-# the_emperor
-# science_cannon
-# lil_bomber
-# mutation
-# wind_up_gun
-# silencer
-# pitchfork
-# composite_gun
-# gunther
-# mahoguny
-# lower_case_r
-# buzzkill
-# uranium_ammolet
-# copper_ammolet
-# frost_ammolet
-# fightsabre
-# huntsman
-# shotgrub
+owl = "Owl"
+grappling_hook = "Grappling Hook"
+air_strike = "Air Strike"
+gungeon_pepper = "Gungeon Pepper"
+ring_of_chest_friendship = "Ring of Chest Friendship"
+ancient_heros_bandana = "Ancient Hero's Bandana"
+heavy_boots = "Heavy Boots"
+broccoli = "Broccoli"
+antibody = "Antibody"
+pink_guon_stone = "Pink Guon Stone"
+white_guon_stone = "White Guon Stone"
+orange_guon_stone = "Orange Guon Stone"
+clear_guon_stone = "Clear Guon Stone"
+old_knights_flask = "Old Knight's Flask"
+red_guon_stone = "Red Guon Stone"
+blue_guon_stone = "Blue Guon Stone"
+riddle_of_lead = "Riddle Of Lead"
+iron_coin = "Iron Coin"
+laser_sight = "Laser Sight"
+dark_marker = "Dark Marker"
+flare_gun = "Flare Gun"
+spice = "Spice"
+fat_bullets = "Fat Bullets"
+frost_bullets = "Frost Bullets"
+super_hot_watch = "Super Hot Watch"
+drum_clip = "Drum Clip"
+gungeon_blueprint = "Gungeon Blueprint"
+homing_bullets = "Homing Bullets"
+blood_brooch = "Blood Brooch"
+plus_one_bullets = "+1 Bullets"
+backup_gun = "Backup Gun"
+bouncy_bullets = "Bouncy Bullets"
+seven_leaf_clover = "Seven Leaf Clover"
+sunglasses = "Sunglasses"
+meatbun = "Meatbun"
+molotov_launcher = "Molotov Launcher"
+mimic_tooth_necklace = "Mimic Tooth Necklace"
+ring_of_mimic_friendship = "Ring of Mimic Friendship"
+hot_lead = "Hot Lead"
+# hegemony_credit = "Hegemony Credit"
+shock_rounds = "Shock Rounds"
+dog = "Dog"
+super_space_turtle = "Super Space Turtle"
+#bullet_that_can_kill_the_past = "Bullet That Can Kill The Past"
+explosive_rounds = "Explosive Rounds"
+#old_crest
+escape_rope = "Escape Rope"
+wax_wings = "Wax Wings"
+cluster_mine = "Cluster Mine"
+cloranthy_ring = "Cloranthy Ring"
+clone = "Clone"
+blast_helmet = "Blast Helmet"
+monster_blood = "Monster Blood"
+nanomachines = "Nanomachines"
+gunboots = "Gunboots"
+#gnawed_key
+r2g2 = "R2G2"
+ticket = "Ticket"
+gold_ammolet = "Gold Ammolet"
+lodestone_ammolet = "Lodestone Ammolet"
+angry_bullets = "Angry Bullets"
+chaos_ammolet = "Chaos Ammolet"
+number_2 = "Number 2"
+corsair = "Corsair"
+charge_shot = "Charge Shot"
+zilla_shotgun = "Zilla Shotgun"
+the_emperor = "The Emperor"
+science_cannon = "Science Cannon"
+lil_bomber = "Lil Bomber"
+mutation = "Mutation"
+wind_up_gun = "Wind Up Gun"
+silencer = "Silencer"
+pitchfork = "Pitchfork"
+composite_gun = "Composite Gun"
+gunther = "Gunther"
+mahoguny = "Mahoguny"
+lower_case_r = "Lower Case r"
+buzzkill = "Buzzkill"
+uranium_ammolet = "Uranium Ammolet"
+copper_ammolet = "Copper Ammolet"
+frost_ammolet = "Frost Ammolet"
+fightsabre = "Fightsabre"
+huntsman = "Huntsman"
+shotgrub = "Shotgrub"
 # prime_primer
 # planar_lead
 # obsidian_shell_casing
 # arcane_gunpowder
-# shadow_bullets
-# enraging_photo
-# military_training
-# trusty_lockpicks
-# cat_claw
-# railgun
-# compressed_air_tank
-# snakemaker
-# bullet_bore
-# trick_gun
-# heart_of_ice
-# mass_shotgun
-# molotov
-# bait_launcher
-# prototype_railgun
-# rc_rocket
-# alpha_bullets
-# omega_bullets
-# easy_reload_bullets
-# brick_breaker
-# excaliber
-# derringer
-# shotgun_full_of_love
-# betrayers_shield
-# triple_crossbow
-# sling
-# flash_ray
-# phoenix
-# hexagun
-# frost_giant
-# cobalt_hammer
-# cell_key
-# anvillain
-# mine_cutter
-# staff_of_firepower
-# table_tech_sight
-# table_tech_money
-# table_tech_rocket
-# table_tech_rage
-# table_tech_blanks
-# gungine
-# snowballer
-# melted_rock
-# siren
-# rattler
-# sixth_chamber
-# busted_television
-# battery_bullets
-# coolant_leak
-# friendship_cookie
-# heros_sword
-# live_ammo
-# replacement_arm
-# balloon
-# blasphemy
-# heart_holster
-# heart_lunchbox
-# heart_locket
-# heart_bottle
-# heart_purse
-# shotga_cola
-# shotgun_coffee
-# liquid_valkyrie
-# jar_of_bees
-# stuffed_star
-# bullet_idol
-# mustache
-# bloodied_scarf
-# muscle_relaxant
-# explosive_decoy
-# bracket_key
-# ruby_bracelet
-# emerald_bracelet
-# badge
-# big_boy
-# trident
-# the_scrambler
-# shield_of_the_maiden
-# boomerang
-# teleporter_prototype
-# armor_synthesizer
-# pig
-# sponge
-# gas_mask
-# hazmat_suit
-# ring_of_triggers
-# armor_of_thorns
-# ring_of_ethereal_form
-# chaff_grenade
-# blank_companions_ring
-# smoke_bomb
-# ring_of_the_resourceful_rat
-# shellegun
-# table_tech_stun
-# green_guon_stone
-# master_round_5
-# master_round_3
-# master_round_1
-# master_round_4
-# master_round_2
-# hidden_compartment
-# abyssal_tentacle
-# quad_laser
-# microtransaction_gun
-# origuni
-# banana
-# super_meat_gun
-# makeshift_cannon
-# camera
-# gunzheng
-# tetrominator
-# devolver
-# orange
-# treadnaught_cannon
-# book_of_chest_anatomy
-# ring_of_chest_vampirism
-# gun_soul
-# brick_of_cash
-# wingman
-# wolf
-# briefcase_of_cash
-# galactic_medal_of_valor
-# unity
-# elder_blank
-# hip_holster
-# bullet
-# hyper_light_blaster
-# really_special_lute
-# starpew
-# dueling_laser
-# jk47
-# 3rd_party_controller
-# shell
-# poxcannon
-# directional_pad
-# mourning_star
-# triple_gun
-# combined_rifle
-# balloon_gun
-# chance_bullets
-# stout_bullets
-# bloody_9mm
-# lament_configurum
-# springheel_boots
-# charming_rounds
-# zombie_bullets
-# battle_standard
-# remote_bullets
-# flak_bullets
-# gilded_bullets
-# magic_bullets
-# relodestone
-# vorpal_gun
-# silver_bullets
-# boxing_glove
-# glass_cannon
-# casey
-# strafe_gun
-# the_predator
-# ac15_unarmored
-# ac15
-# windgunner
-# knights_gun
-# crown_of_guns
-# bottle
-# the_fat_line
-# the_exotic
-# full_metal_jacket
-# glass_guon_stone
-# rad_gun
-# roll_bomb
-# helix_bullets
-# chaos_bullets
-# yellow_chamber
-# cursed_bullets
-# chicken_flute
-# chest_teleporter
-# robots_left_hand
-# turbo_gun
-# sprun
-# blank_bullets
-# junkan
-# void_core_cannon
-# life_orb
-# teapot
-# mr_accretion_jr
-# stone_dome
-# bubble_blaster
-# spread_ammo
-# big_shotgun
-# gunner
-# slinger
-# loot_bag
-# clown_mask
-# wood_beam
-# drill
-# elimentaler
-# platinum_bullets
-# bumbullets
-# holey_grail
-# turkey
-# table_tech_shotgun
-# crisis_stone
-# snowballets
-# weird_egg
-# devolver_rounds
-# vorpal_bullets
-# gold_junk
-# daruma
-# portable_table_device
-# turtle_problem
-# chamber_gun
-# rogue_special_alt
-# budget_revolver_alt
-# hungry_bullets
-# kruller_glaive
-# orbital_bullets
-# partially_eaten_cheese
-# resourceful_sack
-# baby_good_mimic
-# macho_brace
-# table_tech_heat
-# rat_boots
-# high_dragunfire
-# rat_key
-# gunderfury
-# mimic_gun
-# serpent
-# sunlight_javelin
-# evolver
-# high_kaliber
-# finished_gun
-# marine_sidearm_alt
-# rusty_sidearm_alt
-# dart_gun_alt
-# robots_right_hand_alt
-# blasphemy_alt
-# magazine_rack
-# lichs_eye_bullets
-# cat_bullet_king_throne
-# baby_good_shelleton
-# shadow_clone
-# scouter
-# katana_bullets
+shadow_bullets = "Shadow Bullets"
+enraging_photo = "Enraging Photo"
+military_training = "Military Training"
+trusty_lockpicks = "Trusty Lockpicks"
+cat_claw = "cat Claw"
+railgun = "Railgun"
+compressed_air_tank = "Compressed Air Tank"
+snakemaker = "Snakemaker"
+bullet_bore = "Bullet Bore"
+trick_gun = "Trick Gun"
+heart_of_ice = "Heart of Ice"
+mass_shotgun = "Mass Shotgun"
+molotov = "Molotov"
+bait_launcher = "Bait Launcher"
+prototype_railgun = "Prototype Railgun"
+rc_rocket = "RC Rocket"
+alpha_bullets = "Alpha Bullets"
+omega_bullets = "Omega Bullets"
+easy_reload_bullets = "Easy Reload Bullets"
+brick_breaker = "Brick Breaker"
+excaliber = "Excaliber"
+derringer = "Derringer"
+shotgun_full_of_love = "Shotgun Full of Love"
+betrayers_shield = "Betrayers Shield"
+triple_crossbow = "Triple Crossbow"
+sling = "Sling"
+flash_ray = "Flash Ray"
+phoenix = "Phoenix"
+hexagun = "Hexagun"
+frost_giant = "Frost Giant"
+cobalt_hammer = "Cobalt Hammer"
+anvillain = "Anvillain"
+mine_cutter = "Mine Cutter"
+staff_of_firepower = "Staff of Firepower"
+table_tech_sight = "Table Tech Sight"
+table_tech_money = "Table Tech Money"
+table_tech_rocket = "Table Tech Rocket"
+table_tech_rage = "Table Tech Rage"
+table_tech_blanks = "Table Tech Blanks"
+gungine = "Gungine"
+snowballer = "Snowballer"
+melted_rock = "Melted Rock"
+siren = "Siren"
+rattler = "Rattler"
+sixth_chamber = "Sixth Chamber"
+battery_bullets = "Battery Bullets"
+coolant_leak = "Coolant Leak"
+friendship_cookie = "Friendship Cookie"
+heros_sword = "Heroes Sword"
+live_ammo = "live Ammo"
+blasphemy = "Blasphemy"
+heart_holster = "Heart Holster"
+heart_lunchbox = "Heart Lunchbox"
+heart_locket = "Heart Locket"
+heart_bottle = "Heart Bottle"
+heart_purse = "Heart Purse"
+shotga_cola = "Shotga Cola"
+shotgun_coffee = "Shotgun Coffee"
+liquid_valkyrie = "Liquid Valkyrie"
+jar_of_bees = "Jar of Bees"
+stuffed_star = "Stuffed Star"
+bullet_idol = "Bullet Idol"
+mustache = "Mustache"
+bloodied_scarf = "Bloodied Scarf"
+muscle_relaxant = "Muscle Relaxant"
+explosive_decoy = "Explosive Decoy"
+bracket_key = "Bracket Key"
+ruby_bracelet = "Ruby Bracelet"
+emerald_bracelet = "Emerald Bracelet"
+badge = "Badge"
+big_boy = "Big Boy"
+trident = "Trident"
+the_scrambler = "The Scrambler"
+shield_of_the_maiden = "Shield of The Maiden"
+boomerang = "Boomerang"
+teleporter_prototype = "Teleporter's Prototype"
+armor_synthesizer = "Armor Synthesizer"
+pig = "Pig"
+sponge = "Sponge"
+gas_mask = "Gas Mask"
+hazmat_suit = "Hazmat Suit"
+ring_of_triggers = "Ring of Triggers"
+armor_of_thorns = "Armor Of Thorns"
+ring_of_ethereal_form = "Ring of Ethereal Form"
+chaff_grenade = "Chaff Grenade"
+blank_companions_ring = "Blank Companions Ring"
+smoke_bomb = "Smoke Bomb"
+ring_of_the_resourceful_rat = "Ring of The Resourceful Rat"
+shellegun = "Shellegun"
+table_tech_stun = "Table Tech Stun"
+green_guon_stone = "Green Guon Stone"
+hidden_compartment = "Hidden Compartment"
+abyssal_tentacle = "Abyssal Tentacle"
+quad_laser = "Quad Laser"
+microtransaction_gun = "MTX Gun"
+origuni = "Origuni"
+banana = "Banana"
+super_meat_gun = "Super Meat Gun"
+makeshift_cannon = "Makeshift Cannon"
+camera = "Camera"
+gunzheng = "Gunzheng"
+tetrominator = "Tetrominator"
+devolver = "Devolver"
+orange = "Orange"
+book_of_chest_anatomy = "Book of Chest Anatomy"
+ring_of_chest_vampirism = "Ring of Chest Vampirism"
+gun_soul = "Gun Soul"
+brick_of_cash = "Brick of Cash"
+wingman = "Wingman"
+wolf = "Wolf"
+briefcase_of_cash = "Briefcase Of Cash"
+galactic_medal_of_valor = "Galactic Medal Of Valor"
+unity = "Unity"
+elder_blank = "Elder Blank"
+hip_holster = "Hip Holster"
+bullet = "Bullet"
+hyper_light_blaster = "Hyper-Light Blaster"
+really_special_lute = "Really Special Lute"
+starpew = "Starpew"
+dueling_laser = "Dueling Laser"
+jk47 = "jk47"
+third_party_controller = "3rd Party Controller"
+shell = "Shell"
+poxcannon = "Poxcannon"
+directional_pad = "Directional Pad"
+mourning_star = "Mourning Star"
+triple_gun = "Triple Gun"
+combined_rifle = "Combined Rifle"
+balloon_gun = "Balloon Gun"
+chance_bullets = "Chance Bullets"
+stout_bullets = "Stout Bullets"
+bloody_9mm = "Bloody 9mm"
+lament_configurum = "Lament Configurum"
+springheel_boots = "Springheel Boots"
+charming_rounds = "Charming Rounds"
+zombie_bullets = "Zombie Bullets"
+battle_standard = "Battle Standard"
+remote_bullets = "Remote Bullets"
+flak_bullets = "Flak Bullets"
+gilded_bullets = "Gilded Bullets"
+magic_bullets = "Magic Bullets"
+relodestone = "Relodestone"
+vorpal_gun = "Vorpal Gun"
+silver_bullets = "Silver Bullets"
+boxing_glove = "Boxing Glove"
+glass_cannon = "Glass Cannon"
+casey = "Casey"
+strafe_gun = "Strafe Gun"
+the_predator = "The Predator"
+ac15 = "Ac15"
+windgunner = "Windgunner"
+knights_gun = "Knight's Gun"
+crown_of_guns = "Crown Of Guns"
+bottle = "Bottle"
+the_fat_line = "The Fat Line"
+the_exotic = "The Exotic"
+full_metal_jacket = "Full Metal Jacket"
+glass_guon_stone = "Glass Guon Stone"
+rad_gun = "Rad Gun"
+roll_bomb = "Roll Bomb"
+helix_bullets = "Helix Bullets"
+chaos_bullets = "Chaos Bullets"
+yellow_chamber = "Yellow Chamber"
+cursed_bullets = "Cursed Bullets"
+chicken_flute = "Chicken Flute"
+chest_teleporter = "Chest Teleporter"
+robots_left_hand = "Robots Left Hand"
+turbo_gun = "Turbo Gun"
+sprun = "sprun"
+blank_bullets = "Blank Bullets"
+void_core_cannon = "Void Core Cannon"
+life_orb = "Life Orb"
+teapot = "Teapot"
+mr_accretion_jr = "Mr Accretion Jr"
+stone_dome = "Stone Dome"
+bubble_blaster = "Bubble Blaster"
+spread_ammo = "Spread Ammo"
+big_shotgun = "Big Shotgun"
+gunner = "Gunner"
+slinger = "Slinger"
+loot_bag = "Loot Bag"
+clown_mask = "Clown Mask"
+wood_beam = "Wood Beam"
+drill = "Drill"
+elimentaler = "Elimentaler"
+platinum_bullets = "Platinum Bullets"
+bumbullets = "Bumbullets"
+holey_grail = "Holey Grail"
+turkey = "Turkey"
+table_tech_shotgun = "Table Tech Shotgun"
+crisis_stone = "Crisis Stone"
+snowballets = "Snowballets"
+weird_egg = "Weird Egg"
+devolver_rounds = "Devolver Rounds"
+vorpal_bullets = "Vorpal Bullets"
+gold_junk = "Gold Junk"
+daruma = "Daruma"
+portable_table_device = "Portable Table Device"
+turtle_problem = "Turtle Problem"
+chamber_gun = "Chamber Gun"
+hungry_bullets = "Hungry Bullets"
+kruller_glaive = "Kruller Glaive"
+orbital_bullets = "Orbital Bullets"
+partially_eaten_cheese = "Partially Eaten Cheese"
+resourceful_sack = "Resourceful Sack"
+baby_good_mimic = "Baby Good Mimic"
+macho_brace = "Macho Brace"
+table_tech_heat = "Table Tech Heat"
+rat_boots = "Rat Boots"
+high_dragunfire = "High Dragunfire"
+gunderfury = "Gunderfury"
+mimic_gun = "Mimic Gun"
+serpent = "Serpent"
+sunlight_javelin = "Sunlight Javelin"
+evolver = "Evolver"
+high_kaliber = "High Kaliber"
+finished_gun = "Finished Gun"
+magazine_rack = "Magazine Rack"
+lichs_eye_bullets = "Lich's Eye Bullets"
+cat_bullet_king_throne = "Cat Bullet King Throne"
+baby_good_shelleton = "Baby Good Shelleton"
+shadow_clone = "Shadow Clone"
+scouter = "Scouter"
+katana_bullets = "Katana Bullets"
