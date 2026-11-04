@@ -178,8 +178,9 @@ BOSSKILLED_OLDKING                  = "Defeat Old King"
 BOSSKILLED_RESOURCEFULRAT           = "Defeat Resourceful Rat"
 BOSSKILLED_HELICOPTER               = "Defeat Agunim"
 BOSSKILLED_MINI_FUSELIER            = "Defeat Fuselier"
-BOSSKILLED_MINI_MAGICIAN            = "Defeat Shadow Magician" # not an official gungeon flag
 TUTORIAL_KILLED_MANFREDS_RIVAL      = "Defeat Blockner"
+BOSSKILLED_MINI_MAGICIAN            = "Defeat Shadow Magician" # not an official gungeon flag
+#BOSSKILLED_MINI_MAGICIAN_X5         = "Defeat Shadow Magician 5 Times" # not an official gungeon flag # Not used
 
 ACHIEVEMENT_CASTLE_MANYTIMES        = "Complete 1st Floor 50 Times"
 ACHIEVEMENT_GUNGEON_MANYTIMES       = "Complete 2nd Floor 40 Times"

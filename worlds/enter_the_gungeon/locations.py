@@ -221,7 +221,8 @@ BreachLocations = {
 	LocationName.BOSSKILLED_DOORMIMIC: 10150,
     LocationName.BOSSKILLED_DRAGUN: 10500,
     LocationName.BOSSKILLED_MINI_FUSELIER: 10602,
-    LocationName.BOSSKILLED_MINI_MAGICIAN: 400100,
+    LocationName.BOSSKILLED_MINI_MAGICIAN: 400400,
+    #LocationName.BOSSKILLED_MINI_MAGICIAN_X5: 400401, #Removed because I can't figure out how to implement the game logic for this location
 
     LocationName.ACHIEVEMENT_CASTLE_MANYTIMES: 300007,
 	LocationName.ACHIEVEMENT_GUNGEON_MANYTIMES: 300008,
@@ -293,6 +294,8 @@ ExcludedPriorityLocations = [
 	LocationName.ACHIEVEMENT_HOLLOW_MANYTIMES,
 	LocationName.ACHIEVEMENT_FORGE_MANYTIMES,
     LocationName.BOSSKILLED_DOORMIMIC,
+    LocationName.BOSSKILLED_MINI_MAGICIAN,
+    #LocationName.BOSSKILLED_MINI_MAGICIAN_X5,
 ]
 
 class GungeonLocation(Location):
@@ -338,7 +341,7 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
 
     abbey = world.get_region(RegionName.Abbey)
     abbey.add_locations(get_location_names_with_ids(
-        [LocationName.ACHIEVEMENT_ACCESS_ABBEY, LocationName.OPEN_TRUTH_CHEST, 
+        [LocationName.ACHIEVEMENT_ACCESS_ABBEY, LocationName.OPEN_TRUTH_CHEST,
          LocationName.BOSSKILLED_OLDKING]))
 
     ratLair = world.get_region(RegionName.RatLair)
