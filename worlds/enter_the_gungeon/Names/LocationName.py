@@ -138,6 +138,8 @@ SHOP_HAS_MET_TRUCK                  = "Meet Trorc"
 WINCHESTER_MET_PREVIOUSLY           = "Meet Winchester"
 SHERPA_ACTIVE_IN_ELEVATOR_ROOM      = "Meet Tinker"
 
+BLACKSMITH_RECEIVED_BUSTED_TELEVISION = "Deliver Busted Television"
+
 BLACKSMITH_ELEMENT1                 = "Deliver Prime Primer"
 BLACKSMITH_ELEMENT2                 = "Deliver Arcane Gunpowder"
 BLACKSMITH_ELEMENT3                 = "Deliver Planar Lead"
