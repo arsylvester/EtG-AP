@@ -143,7 +143,7 @@ class IncludeFrifleQuestsInLogicOption(Toggle):
     """
     Determine if the hunting quests given Frifle and the Grey Mauser should be included in the AP logic as locations. 
     """
-    display_name = "Include Hunting Quests"
+    display_name = "Include Hunting Quests (not implemented yet)"
 
 @dataclass
 class GungeonOptions(PerGameCommonOptions):

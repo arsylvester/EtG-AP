@@ -288,15 +288,29 @@ AllLocationIds = {
     **OtherLocations,
 }
 
-ExcludedPriorityLocations = [
+DefaultExcludedLocations = [
     LocationName.ACHIEVEMENT_CASTLE_MANYTIMES,
 	LocationName.ACHIEVEMENT_GUNGEON_MANYTIMES,
 	LocationName.ACHIEVEMENT_MINES_MANYTIMES,
 	LocationName.ACHIEVEMENT_HOLLOW_MANYTIMES,
 	LocationName.ACHIEVEMENT_FORGE_MANYTIMES,
+    #LocationName.BOSSKILLED_MINI_MAGICIAN_X5,
+    LocationName.BLUEPRINTMETA_PLATINUMBULLETS,
+]
+
+MiniBossExcludedLocations = [
     LocationName.BOSSKILLED_DOORMIMIC,
     LocationName.BOSSKILLED_MINI_MAGICIAN,
-    #LocationName.BOSSKILLED_MINI_MAGICIAN_X5,
+    LocationName.BOSSKILLED_MINI_FUSELIER,
+    LocationName.TUTORIAL_KILLED_MANFREDS_RIVAL
+]
+
+NoHitBossExcludedLocations = [
+    LocationName.ACHIEVEMENT_NOBOSSDAMAGE_CASTLE,
+    LocationName.ACHIEVEMENT_NOBOSSDAMAGE_GUNGEON,
+    LocationName.ACHIEVEMENT_NOBOSSDAMAGE_MINES,
+    LocationName.ACHIEVEMENT_NOBOSSDAMAGE_HOLLOW,
+    LocationName.ACHIEVEMENT_NOBOSSDAMAGE_FORGE
 ]
 
 class GungeonLocation(Location):
@@ -345,21 +359,29 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
         [LocationName.ACHIEVEMENT_ACCESS_ABBEY, LocationName.OPEN_TRUTH_CHEST,
          LocationName.BOSSKILLED_OLDKING]))
 
-    ratLair = world.get_region(RegionName.RatLair)
-    ratLair.add_locations(get_location_names_with_ids([LocationName.ACHIEVEMENT_ACCESS_RATGEON]))
+    rat_lair = world.get_region(RegionName.RatLair)
+    rat_lair.add_locations(get_location_names_with_ids([LocationName.ACHIEVEMENT_ACCESS_RATGEON]))
 
-    ratFight = world.get_region(RegionName.RatFight)
-    ratFight.add_locations(get_location_names_with_ids([LocationName.BOSSKILLED_RESOURCEFULRAT]))
+    rat_fight = world.get_region(RegionName.RatFight)
+    rat_fight.add_locations(get_location_names_with_ids([LocationName.BOSSKILLED_RESOURCEFULRAT]))
 
-    rngDep = world.get_region(RegionName.RngDepartment)
-    rngDep.add_locations(get_location_names_with_ids(
+    rng_dep = world.get_region(RegionName.RngDepartment)
+    rng_dep.add_locations(get_location_names_with_ids(
         [LocationName.ACHIEVEMENT_ACCESS_RNG_DEP, LocationName.BOSSKILLED_HELICOPTER]))
 
-    pastKillable = world.get_region(RegionName.PastKillable)
-    pastKillable.add_locations(get_location_names_with_ids([LocationName.BLACKSMITH_BULLET_COMPLETE]))
+    past_killable = world.get_region(RegionName.PastKillable)
+    past_killable.add_locations(get_location_names_with_ids([LocationName.BLACKSMITH_BULLET_COMPLETE]))
 
-    # Set Location Priority
-    for location in ExcludedPriorityLocations:
+    # Set Location Priority based on Options
+    if world.options.priority_mini_bosses == "option_forbid_priority_items":
+        for location in MiniBossExcludedLocations:
+            world.get_location(location).progress_type = LocationProgressType.EXCLUDED
+    if world.options.priority_nohit_bosses == "option_forbid_priority_items":
+        for location in NoHitBossExcludedLocations:
+            world.get_location(location).progress_type = LocationProgressType.EXCLUDED
+    if world.options.priority_rat_fight == "option_forbid_priority_items":
+        world.get_location(LocationName.BOSSKILLED_RESOURCEFULRAT).progress_type = LocationProgressType.EXCLUDED
+    for location in DefaultExcludedLocations:
         world.get_location(location).progress_type = LocationProgressType.EXCLUDED
 
 def create_events(world: EnterTheGungeonWorld) -> None:
