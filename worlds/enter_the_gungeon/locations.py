@@ -373,13 +373,13 @@ def create_regular_locations(world: EnterTheGungeonWorld) -> None:
     past_killable.add_locations(get_location_names_with_ids([LocationName.BLACKSMITH_BULLET_COMPLETE]))
 
     # Set Location Priority based on Options
-    if world.options.priority_mini_bosses == "option_forbid_priority_items":
+    if world.options.priority_mini_bosses != 1:
         for location in MiniBossExcludedLocations:
             world.get_location(location).progress_type = LocationProgressType.EXCLUDED
-    if world.options.priority_nohit_bosses == "option_forbid_priority_items":
+    if world.options.priority_nohit_bosses != 1:
         for location in NoHitBossExcludedLocations:
             world.get_location(location).progress_type = LocationProgressType.EXCLUDED
-    if world.options.priority_rat_fight == "option_forbid_priority_items":
+    if world.options.priority_rat_fight != 1:
         world.get_location(LocationName.BOSSKILLED_RESOURCEFULRAT).progress_type = LocationProgressType.EXCLUDED
     for location in DefaultExcludedLocations:
         world.get_location(location).progress_type = LocationProgressType.EXCLUDED
